@@ -1,5 +1,11 @@
 # CMMC Compass - Community CMMC Level 1 Platform
 
+<div align="center">
+  <img src="https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/vmby46tevqgow4x9b48u" alt="Tekimax LLC Logo" width="100" height="100">
+  <br>
+  <strong>By Tekimax LLC</strong>
+</div>
+
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Open Source](https://img.shields.io/badge/Open%20Source-Community%20Driven-brightgreen.svg)]()
 [![Self-Hosted](https://img.shields.io/badge/Deployment-Self--Hosted-blue.svg)]()
@@ -207,6 +213,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ⚠️ **Not Professional Services**: This is a free, open-source tool built during our own CMMC journey. It is not professional consulting services.
 
+⚠️ **CMMC Updates & Compliance**: Some access controls and configurations may not reflect the latest CMMC requirements. Always follow official CMMC updates and guidance to ensure your configurations remain compliant. The platform should be regularly updated based on evolving CMMC standards.
+
 ⚠️ **Use at Your Own Risk**: While we've built this based on our compliance experience, every organization is different. Consult with certified CMMC professionals for official guidance.
 
 ⚠️ **Community Tool**: This platform represents our shared experience and community knowledge, not official CMMC guidance.
@@ -219,7 +227,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 📖 **Documentation**: Comprehensive guides in the `/docs` section
 - 🐛 **Issues**: Report bugs on GitHub Issues
 - 💬 **Discussions**: Community support on GitHub Discussions
-- 📧 **Contact**: hello@tekimax.com for urgent issues
+- 📧 **Contact**: info@tekimax.com for urgent issues
 
 ### Community
 - 🌟 **Star the repo** if this helps your small business

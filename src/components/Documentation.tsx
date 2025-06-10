@@ -140,9 +140,22 @@ export const Documentation: React.FC<DocumentationProps> = ({
                 <h1 className="text-xl font-semibold text-white">
                   CMMC Compass Documentation
                 </h1>
-                <p className="text-sm text-zinc-400">
-                  Open-source CMMC Level 1 compliance platform
-                </p>
+                <div className="flex items-center gap-2">
+                  <p className="text-sm text-zinc-400">
+                    Open-source CMMC Level 1 compliance platform
+                  </p>
+                  <span className="text-zinc-600">•</span>
+                  <div className="flex items-center gap-1">
+                    <img
+                      src="https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/vmby46tevqgow4x9b48u"
+                      alt="Tekimax LLC"
+                      className="w-4 h-4 rounded"
+                    />
+                    <span className="text-sm text-zinc-400">
+                      By Tekimax LLC
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -273,7 +286,7 @@ export const Documentation: React.FC<DocumentationProps> = ({
                       <h4 className="font-semibold text-cyan-300 mb-2">
                         Why We Built This
                       </h4>
-                      <p className="text-cyan-200 text-sm">
+                      <p className="text-cyan-200 text-sm mb-3">
                         When we went through CMMC compliance as a small
                         business, we found existing solutions too expensive or
                         not designed for our needs. We built this platform
@@ -281,6 +294,24 @@ export const Documentation: React.FC<DocumentationProps> = ({
                         small businesses can benefit. This isn't a service we
                         sell - it's a community tool.
                       </p>
+                      <div className="bg-amber-900/20 border border-amber-700 rounded-md p-3">
+                        <div className="flex items-start gap-2">
+                          <AlertTriangle className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
+                          <div>
+                            <p className="text-amber-200 text-xs font-medium mb-1">
+                              Important Disclaimer
+                            </p>
+                            <p className="text-amber-200 text-xs">
+                              Some access controls and configurations may not
+                              reflect the latest CMMC requirements. Always
+                              follow official CMMC updates and guidance to
+                              ensure your configurations remain compliant. The
+                              platform should be regularly updated based on
+                              evolving CMMC standards.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
