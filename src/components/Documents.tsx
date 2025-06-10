@@ -483,12 +483,12 @@ export const Documents: React.FC = () => {
   const demoDocuments = [
     {
       name: "CMMC Model Overview v2",
-      url: "https://dodcio.defense.gov/Portals/0/Documents/CMMC/ModelOverviewv2.pdf",
+      url: "https://www.acq.osd.mil/cmmc/docs/CMMC_Model_Main_20210113_508.pdf",
       type: "policy" as const,
     },
     {
       name: "CMMC Assessment Guide L1 v2",
-      url: "https://dodcio.defense.gov/Portals/0/Documents/CMMC/AssessmentGuideL1v2.pdf",
+      url: "https://www.acq.osd.mil/cmmc/docs/CMMC_Assessment_Guide_L1_V2.02_20220118_508.pdf",
       type: "procedure" as const,
     },
   ];
@@ -545,10 +545,12 @@ export const Documents: React.FC = () => {
 
   if (!documents) {
     return (
-      <div className="flex items-center justify-center h-64">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading documents...</p>
+      <div className="min-h-screen bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
+        <div className="flex items-center justify-center h-64">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto mb-4"></div>
+            <p className="text-zinc-400">Loading documents...</p>
+          </div>
         </div>
       </div>
     );
@@ -556,119 +558,137 @@ export const Documents: React.FC = () => {
 
   if (documents.length === 0) {
     return (
-      <div className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-white">Documents</h2>
-        </div>
-
-        <Card className="bg-zinc-800/50 border-zinc-700 backdrop-blur mx-auto max-w-4xl">
-          <CardHeader className="text-center pb-6">
-            <FileText className="h-20 w-20 text-blue-400 mx-auto mb-6" />
-            <CardTitle className="text-2xl font-bold text-white mb-3">
-              Get Started with Documents
-            </CardTitle>
-            <p className="text-gray-400 text-lg">
-              Upload documents to enable RAG functionality, or try our demo
-              documents below
-            </p>
-          </CardHeader>
-          <CardContent className="space-y-6">
+      <div className="min-h-screen bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+          <div className="flex items-center justify-between">
             <div>
-              <h4 className="text-white font-medium mb-3">Demo Documents</h4>
-              <p className="text-sm text-gray-400 mb-4">
-                Quick start with official CMMC documentation from the Department
-                of Defense
+              <h1 className="text-3xl font-bold text-white">Documents</h1>
+              <p className="text-zinc-300 mt-2">
+                Manage and generate embeddings for CMMC compliance documents
               </p>
-              <div className="space-y-4">
-                {demoDocuments.map((doc, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center p-4 bg-zinc-700/50 rounded-lg border border-zinc-600"
-                  >
-                    <Download className="h-5 w-5 text-blue-400 mr-3" />
-                    <div className="flex-1">
-                      <div className="text-white font-medium">{doc.name}</div>
-                      <div className="text-sm text-gray-400">
-                        Official DOD CMMC Documentation • {doc.type}
+            </div>
+          </div>
+
+          <Card className="bg-zinc-800/50 border-zinc-700 backdrop-blur mx-auto max-w-4xl">
+            <CardHeader className="text-center pb-6">
+              <FileText className="h-20 w-20 text-white mx-auto mb-6" />
+              <CardTitle className="text-2xl font-bold text-white mb-3">
+                Get Started with Documents
+              </CardTitle>
+              <p className="text-zinc-400 text-lg">
+                Upload documents to enable RAG functionality, or try our demo
+                documents below
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div>
+                <h4 className="text-white font-medium mb-3">Demo Documents</h4>
+                <p className="text-sm text-zinc-400 mb-4">
+                  Quick start with official CMMC documentation from the
+                  Department of Defense
+                </p>
+                <div className="space-y-4">
+                  {demoDocuments.map((doc, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center p-4 bg-zinc-700/50 rounded-lg border border-zinc-600"
+                    >
+                      <Download className="h-5 w-5 text-white mr-3" />
+                      <div className="flex-1">
+                        <div className="text-white font-medium">{doc.name}</div>
+                        <div className="text-sm text-zinc-400">
+                          Official DOD CMMC Documentation • {doc.type}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
 
-                <div className="pt-2">
-                  <Button
-                    onClick={() => void handleUploadAllDemoDocuments()}
-                    disabled={isUploadingDemo}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3"
-                    size="lg"
-                  >
-                    {isUploadingDemo ? (
-                      <>
-                        <Clock className="h-5 w-5 mr-2 animate-spin" />
-                        Uploading Demo Documents...
-                      </>
-                    ) : (
-                      <>
-                        <Upload className="h-5 w-5 mr-2" />
-                        Upload All Demo Documents
-                      </>
-                    )}
-                  </Button>
+                  <div className="pt-2">
+                    <Button
+                      onClick={() => void handleUploadAllDemoDocuments()}
+                      disabled={isUploadingDemo}
+                      className="w-full bg-white text-black hover:bg-zinc-200 py-3"
+                      size="lg"
+                    >
+                      {isUploadingDemo ? (
+                        <>
+                          <Clock className="h-5 w-5 mr-2 animate-spin" />
+                          Uploading Demo Documents...
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="h-5 w-5 mr-2" />
+                          Upload All Demo Documents
+                        </>
+                      )}
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="border-t border-zinc-600 pt-4">
-              <h4 className="text-white font-medium mb-2">Manual Upload</h4>
-              <p className="text-sm text-gray-400 mb-3">
-                Or upload your own compliance documents using the DocumentUpload
-                component
-              </p>
-              <div className="text-xs text-gray-500">
-                • Supported formats: PDF, TXT, DOC, DOCX • Maximum file size:
-                10MB • Documents will be processed for embedding generation
+              <div className="border-t border-zinc-600 pt-4">
+                <h4 className="text-white font-medium mb-2">Manual Upload</h4>
+                <p className="text-sm text-zinc-400 mb-3">
+                  Or upload your own compliance documents using the
+                  DocumentUpload component
+                </p>
+                <div className="text-xs text-zinc-500">
+                  • Supported formats: PDF, TXT, DOC, DOCX • Maximum file size:
+                  10MB • Documents will be processed for embedding generation
+                </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-      <div className="space-y-8">
+    <div className="min-h-screen bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Documents</h1>
-            <p className="text-muted-foreground mt-2">
+            <h1 className="text-3xl font-bold text-white">Documents</h1>
+            <p className="text-zinc-300 mt-2">
               Manage and generate embeddings for CMMC compliance documents
             </p>
           </div>
-          <Button
-            onClick={handleUploadAllDemoDocuments}
-            disabled={isUploadingDemo}
-            className="bg-blue-600 hover:bg-blue-700"
-          >
-            {isUploadingDemo ? (
-              <>
-                <Clock className="h-4 w-4 mr-2 animate-spin" />
-                Uploading Demo Docs...
-              </>
-            ) : (
-              <>
-                <Upload className="h-4 w-4 mr-2" />
-                Upload All Demo Documents
-              </>
-            )}
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              onClick={handleUploadAllDemoDocuments}
+              disabled={isUploadingDemo}
+              className="bg-white text-black hover:bg-zinc-200"
+              size="sm"
+            >
+              {isUploadingDemo ? (
+                <>
+                  <Clock className="h-3 w-3 mr-1 animate-spin" />
+                  Demo...
+                </>
+              ) : (
+                <>
+                  <Upload className="h-3 w-3 mr-1" />
+                  Demo
+                </>
+              )}
+            </Button>
+            <Button
+              onClick={() => setIsRagSheetOpen(true)}
+              className="bg-white text-black hover:bg-zinc-200"
+              size="sm"
+            >
+              <Sparkles className="h-3 w-3 mr-1" />
+              Chat
+            </Button>
+          </div>
         </div>
 
         {/* Documents Table */}
-        <Card>
+        <Card className="bg-zinc-800/50 border-zinc-700">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-white">
               <FileText className="h-5 w-5" />
               Document Library
             </CardTitle>
@@ -676,25 +696,25 @@ export const Documents: React.FC = () => {
           <CardContent>
             {!documents || documents.length === 0 ? (
               <div className="mx-auto max-w-4xl">
-                <Card className="border-dashed border-2 border-muted-foreground/25">
+                <Card className="border-dashed border-2 border-zinc-600 bg-zinc-800/30">
                   <CardContent className="flex flex-col items-center justify-center py-16 px-6 text-center">
-                    <div className="w-20 h-20 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
-                      <FileText className="w-10 h-10 text-white" />
+                    <div className="w-20 h-20 bg-white rounded-lg flex items-center justify-center mb-6">
+                      <FileText className="w-10 h-10 text-zinc-900" />
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                    <h3 className="text-xl font-semibold text-white mb-2">
                       Get Started with Documents
                     </h3>
-                    <p className="text-muted-foreground mb-8 max-w-md">
+                    <p className="text-zinc-300 mb-8 max-w-md">
                       Upload CMMC compliance documents to enable AI-powered
                       analysis and automated compliance checking
                     </p>
 
                     <div className="space-y-4 w-full max-w-md">
                       <div className="text-left">
-                        <h4 className="text-sm font-medium text-foreground mb-3">
+                        <h4 className="text-sm font-medium text-white mb-3">
                           📚 Quick Start Options:
                         </h4>
-                        <div className="space-y-2 text-sm text-muted-foreground">
+                        <div className="space-y-2 text-sm text-zinc-300">
                           <div>
                             • Click "Upload All Demo Documents" above to add
                             official CMMC guides
@@ -717,33 +737,37 @@ export const Documents: React.FC = () => {
               <>
                 <Table>
                   <TableHeader>
-                    <TableRow>
-                      <TableHead>Document</TableHead>
-                      <TableHead>Type</TableHead>
-                      <TableHead>Embedding Status</TableHead>
-                      <TableHead>Uploaded</TableHead>
-                      <TableHead>Actions</TableHead>
+                    <TableRow className="border-zinc-700">
+                      <TableHead className="text-zinc-300">Document</TableHead>
+                      <TableHead className="text-zinc-300">Type</TableHead>
+                      <TableHead className="text-zinc-300">
+                        Embedding Status
+                      </TableHead>
+                      <TableHead className="text-zinc-300">Uploaded</TableHead>
+                      <TableHead className="text-zinc-300">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {documents.map((doc) => (
-                      <TableRow key={doc._id}>
+                      <TableRow key={doc._id} className="border-zinc-700">
                         <TableCell>
                           <div className="flex items-center gap-2">
-                            <FileText className="h-4 w-4 text-muted-foreground" />
-                            <span className="font-medium">{doc.name}</span>
+                            <FileText className="h-4 w-4 text-zinc-400" />
+                            <span className="font-medium text-white">
+                              {doc.name}
+                            </span>
                           </div>
                         </TableCell>
                         <TableCell>
                           <Badge
-                            variant={
+                            className={
                               doc.type === "policy"
-                                ? "default"
+                                ? "bg-blue-600 text-white border-blue-500"
                                 : doc.type === "procedure"
-                                  ? "secondary"
+                                  ? "bg-green-600 text-white border-green-500"
                                   : doc.type === "evidence"
-                                    ? "outline"
-                                    : "destructive"
+                                    ? "bg-purple-600 text-white border-purple-500"
+                                    : "bg-zinc-600 text-white border-zinc-500"
                             }
                           >
                             {doc.type || "other"}
@@ -751,10 +775,7 @@ export const Documents: React.FC = () => {
                         </TableCell>
                         <TableCell>
                           {embeddingProgress[doc._id] ? (
-                            <Badge
-                              variant="secondary"
-                              className="bg-blue-600 hover:bg-blue-700"
-                            >
+                            <Badge className="bg-blue-600 hover:bg-blue-700 text-white border-blue-500">
                               <Clock className="h-3 w-3 mr-1 animate-spin" />
                               Processing {embeddingProgress[doc._id].current}/
                               {embeddingProgress[doc._id].total} (
@@ -765,17 +786,14 @@ export const Documents: React.FC = () => {
                           )}
                         </TableCell>
                         <TableCell>
-                          <span className="text-sm text-muted-foreground">
+                          <span className="text-sm text-zinc-400">
                             {formatDate(doc.uploadedAt)}
                           </span>
                         </TableCell>
                         <TableCell>
                           <div className="flex items-center gap-2">
                             {doc.hasEmbeddings ? (
-                              <Badge
-                                variant="default"
-                                className="bg-green-600 hover:bg-green-700"
-                              >
+                              <Badge className="bg-green-600 hover:bg-green-700 text-white border-green-500">
                                 <CheckCircle className="h-3 w-3 mr-1" />
                                 Ready for AI
                               </Badge>
@@ -787,6 +805,7 @@ export const Documents: React.FC = () => {
                                   handleGenerateEmbeddings(doc._id, doc.name)
                                 }
                                 disabled={!!embeddingProgress[doc._id]}
+                                className="border-zinc-600 text-zinc-300 hover:bg-zinc-700 hover:text-white"
                               >
                                 <Sparkles className="h-3 w-3 mr-1" />
                                 Generate Embeddings
@@ -798,6 +817,7 @@ export const Documents: React.FC = () => {
                               onClick={() =>
                                 handleDeleteDocument(doc._id, doc.name)
                               }
+                              className="border-red-600 text-red-400 hover:bg-red-600 hover:text-white"
                             >
                               <Trash2 className="h-3 w-3" />
                             </Button>
@@ -813,251 +833,230 @@ export const Documents: React.FC = () => {
         </Card>
 
         {/* RAG Test Interface */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Sparkles className="h-5 w-5" />
-              AI-Powered Document Chat
-            </CardTitle>
-            <CardDescription>
-              Ask questions about your uploaded CMMC documents with AI
-              assistance
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button
-              onClick={() => setIsRagSheetOpen(true)}
-              className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-6 text-lg font-semibold shadow-lg"
-              size="lg"
-            >
-              <Sparkles className="h-5 w-5 mr-2" />
-              Open AI Document Chat
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
+        {/* Removed - Chat button moved to header */}
 
-      {/* AI Document Chat Sheet */}
-      <Sheet open={isRagSheetOpen} onOpenChange={setIsRagSheetOpen}>
-        <SheetContent className="bg-zinc-900 border-zinc-700 w-full sm:max-w-2xl flex flex-col">
-          <SheetHeader>
-            <div className="flex items-center justify-between w-full">
-              <div>
-                <SheetTitle className="text-white text-xl">
-                  AI Document Chat
-                </SheetTitle>
-                <SheetDescription className="text-gray-400">
-                  Ask questions about your CMMC compliance documents
-                </SheetDescription>
+        {/* AI Document Chat Sheet */}
+        <Sheet open={isRagSheetOpen} onOpenChange={setIsRagSheetOpen}>
+          <SheetContent className="bg-zinc-900 border-zinc-700 w-full sm:max-w-2xl flex flex-col">
+            <SheetHeader>
+              <div className="flex items-center justify-between w-full">
+                <div>
+                  <SheetTitle className="text-white text-xl">
+                    AI Document Chat
+                  </SheetTitle>
+                  <SheetDescription className="text-zinc-400">
+                    Ask questions about your CMMC compliance documents
+                  </SheetDescription>
+                </div>
+                <SheetClose onClose={() => setIsRagSheetOpen(false)} />
               </div>
-              <SheetClose onClose={() => setIsRagSheetOpen(false)} />
-            </div>
-          </SheetHeader>
+            </SheetHeader>
 
-          {/* Scrollable Content Area */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-6">
-            {/* Chat Mode Info */}
-            <div className="bg-zinc-800/50 border border-zinc-700 rounded-lg p-4 mb-4">
-              <div className="flex items-center gap-2 mb-2">
-                <div
-                  className={`w-2 h-2 rounded-full ${documents?.some((doc) => doc.hasEmbeddings) ? "bg-green-500" : "bg-yellow-500"}`}
-                ></div>
-                <span className="text-white text-sm font-medium">
-                  {documents?.some((doc) => doc.hasEmbeddings)
-                    ? "Expert Mode"
-                    : "Standard Mode"}
-                </span>
-              </div>
-              <p className="text-gray-400 text-xs">
-                {documents?.some((doc) => doc.hasEmbeddings)
-                  ? "💡 AI will provide expert CMMC Level 1 guidance using built-in knowledge. Document search coming soon!"
-                  : "AI will provide general CMMC Level 1 compliance guidance. Upload documents and generate embeddings for document-specific answers"}
-              </p>
-            </div>
-
-            {/* Example Questions */}
-            <div>
-              <h4 className="text-white font-medium mb-3">
-                💡 Example Questions
-              </h4>
-              <div className="grid grid-cols-1 gap-2">
-                {[
-                  "What are the CMMC Level 1 access control requirements?",
-                  "How should I implement audit logging for CMMC compliance?",
-                  "What systems need to be included in the CMMC assessment scope?",
-                  "What evidence is required for CMMC Level 1 certification?",
-                ].map((exampleQuestion, index) => (
-                  <Button
-                    key={index}
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleQuestionClick(exampleQuestion)}
-                    className="text-left justify-start text-sm h-auto py-3 px-4 border-zinc-600 text-gray-300 hover:bg-zinc-700/50 transition-colors"
-                  >
-                    {exampleQuestion}
-                  </Button>
-                ))}
-              </div>
-            </div>
-
-            {/* Messages Display - Following Dashboard Pattern */}
-            <div className="space-y-4">
-              {messages.map((message) => (
-                <div
-                  key={message.id}
-                  className={`flex ${message.type === "user" ? "justify-end" : "justify-start"}`}
-                >
+            {/* Scrollable Content Area */}
+            <div className="flex-1 overflow-y-auto p-6 space-y-6">
+              {/* Chat Mode Info */}
+              <div className="bg-zinc-800/50 border border-zinc-700 rounded-lg p-4 mb-4">
+                <div className="flex items-center gap-2 mb-2">
                   <div
-                    className={`max-w-[80%] rounded-lg p-4 ${
-                      message.type === "user"
-                        ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white"
-                        : "bg-zinc-800/50 border border-zinc-700 text-gray-300"
-                    }`}
-                  >
-                    <div className="whitespace-pre-wrap">
-                      {message.type === "ai" ? (
-                        <div className="prose prose-sm max-w-none prose-invert">
-                          <ReactMarkdown
-                            components={{
-                              p: ({ children }) => (
-                                <p className="mb-2 last:mb-0 text-gray-300">
-                                  {children}
-                                </p>
-                              ),
-                              ul: ({ children }) => (
-                                <ul className="list-disc list-inside mb-2 space-y-1 text-gray-300">
-                                  {children}
-                                </ul>
-                              ),
-                              ol: ({ children }) => (
-                                <ol className="list-decimal list-inside mb-2 space-y-1 text-gray-300">
-                                  {children}
-                                </ol>
-                              ),
-                              li: ({ children }) => (
-                                <li className="text-sm text-gray-300">
-                                  {children}
-                                </li>
-                              ),
-                              strong: ({ children }) => (
-                                <strong className="font-semibold text-white">
-                                  {children}
-                                </strong>
-                              ),
-                              em: ({ children }) => (
-                                <em className="italic text-gray-200">
-                                  {children}
-                                </em>
-                              ),
-                              code: ({ children }) => (
-                                <code className="bg-zinc-900 px-1 py-0.5 rounded text-xs font-mono border border-zinc-600 text-cyan-400">
-                                  {children}
-                                </code>
-                              ),
-                              pre: ({ children }) => (
-                                <pre className="bg-zinc-900 p-2 rounded text-xs font-mono overflow-x-auto mb-2 border border-zinc-600">
-                                  {children}
-                                </pre>
-                              ),
-                              h1: ({ children }) => (
-                                <h1 className="text-lg font-bold mb-2 text-white">
-                                  {children}
-                                </h1>
-                              ),
-                              h2: ({ children }) => (
-                                <h2 className="text-base font-bold mb-2 text-white">
-                                  {children}
-                                </h2>
-                              ),
-                              h3: ({ children }) => (
-                                <h3 className="text-sm font-bold mb-1 text-white">
-                                  {children}
-                                </h3>
-                              ),
-                              blockquote: ({ children }) => (
-                                <blockquote className="border-l-2 border-cyan-500 pl-2 italic mb-2 text-gray-400">
-                                  {children}
-                                </blockquote>
-                              ),
-                            }}
-                          >
-                            {message.content}
-                          </ReactMarkdown>
-                        </div>
-                      ) : (
-                        <div className="text-white">{message.content}</div>
-                      )}
-                    </div>
-                    <div
-                      className={`text-xs mt-2 ${
-                        message.type === "user"
-                          ? "text-white/80"
-                          : "text-gray-500"
-                      }`}
-                    >
-                      {new Date(message.timestamp).toLocaleTimeString()}
-                    </div>
-                  </div>
+                    className={`w-2 h-2 rounded-full ${documents?.some((doc) => doc.hasEmbeddings) ? "bg-green-500" : "bg-yellow-500"}`}
+                  ></div>
+                  <span className="text-white text-sm font-medium">
+                    {documents?.some((doc) => doc.hasEmbeddings)
+                      ? "Expert Mode"
+                      : "Standard Mode"}
+                  </span>
                 </div>
-              ))}
-            </div>
-
-            {/* Loading State */}
-            {isLoading && (
-              <div className="flex justify-start">
-                <div className="bg-zinc-800/50 border border-zinc-700 rounded-lg p-4">
-                  <div className="flex items-center gap-3">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-cyan-400"></div>
-                    <span className="text-gray-300">AI is thinking...</span>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* No response yet */}
-            {messages.length === 1 && !isLoading && (
-              <div className="text-center py-8">
-                <div className="w-16 h-16 bg-gradient-to-r from-cyan-500/20 to-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Sparkles className="w-8 h-8 text-cyan-400" />
-                </div>
-                <p className="text-gray-400 text-sm">
-                  Select an example question above or type your own question to
-                  get started
+                <p className="text-zinc-400 text-xs">
+                  {documents?.some((doc) => doc.hasEmbeddings)
+                    ? "💡 AI will provide expert CMMC Level 1 guidance using built-in knowledge. Document search coming soon!"
+                    : "AI will provide general CMMC Level 1 compliance guidance. Upload documents and generate embeddings for document-specific answers"}
                 </p>
               </div>
-            )}
 
-            {/* Invisible div to scroll to */}
-            <div ref={messagesEndRef} />
-          </div>
+              {/* Example Questions */}
+              <div>
+                <h4 className="text-white font-medium mb-3">
+                  💡 Example Questions
+                </h4>
+                <div className="grid grid-cols-1 gap-2">
+                  {[
+                    "What are the CMMC Level 1 access control requirements?",
+                    "How should I implement audit logging for CMMC compliance?",
+                    "What systems need to be included in the CMMC assessment scope?",
+                    "What evidence is required for CMMC Level 1 certification?",
+                  ].map((exampleQuestion, index) => (
+                    <Button
+                      key={index}
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleQuestionClick(exampleQuestion)}
+                      className="text-left justify-start text-sm h-auto py-3 px-4 border-zinc-600 text-zinc-300 hover:bg-zinc-700/50 hover:text-white transition-colors"
+                    >
+                      {exampleQuestion}
+                    </Button>
+                  ))}
+                </div>
+              </div>
 
-          {/* Fixed Footer with Chat Input */}
-          <div className="border-t border-zinc-700 p-4 bg-zinc-900/95 backdrop-blur">
-            <div className="flex space-x-3">
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Ask a question about CMMC compliance..."
-                className="flex-1 px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm"
-                disabled={isLoading}
-              />
-              <Button
-                onClick={handleSendMessage}
-                disabled={isLoading || !inputValue.trim()}
-                className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 py-3 shrink-0 flex items-center justify-center"
-              >
-                {isLoading ? (
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                ) : (
-                  <Send className="h-4 w-4" />
-                )}
-              </Button>
+              {/* Messages Display - Following Dashboard Pattern */}
+              <div className="space-y-4">
+                {messages.map((message) => (
+                  <div
+                    key={message.id}
+                    className={`flex ${message.type === "user" ? "justify-end" : "justify-start"}`}
+                  >
+                    <div
+                      className={`max-w-[80%] rounded-lg p-4 ${
+                        message.type === "user"
+                          ? "bg-white text-black"
+                          : "bg-zinc-800/50 border border-zinc-700 text-zinc-300"
+                      }`}
+                    >
+                      <div className="whitespace-pre-wrap">
+                        {message.type === "ai" ? (
+                          <div className="prose prose-sm max-w-none prose-invert">
+                            <ReactMarkdown
+                              components={{
+                                p: ({ children }) => (
+                                  <p className="mb-2 last:mb-0 text-zinc-300">
+                                    {children}
+                                  </p>
+                                ),
+                                ul: ({ children }) => (
+                                  <ul className="list-disc list-inside mb-2 space-y-1 text-zinc-300">
+                                    {children}
+                                  </ul>
+                                ),
+                                ol: ({ children }) => (
+                                  <ol className="list-decimal list-inside mb-2 space-y-1 text-zinc-300">
+                                    {children}
+                                  </ol>
+                                ),
+                                li: ({ children }) => (
+                                  <li className="text-sm text-zinc-300">
+                                    {children}
+                                  </li>
+                                ),
+                                strong: ({ children }) => (
+                                  <strong className="font-semibold text-white">
+                                    {children}
+                                  </strong>
+                                ),
+                                em: ({ children }) => (
+                                  <em className="italic text-zinc-200">
+                                    {children}
+                                  </em>
+                                ),
+                                code: ({ children }) => (
+                                  <code className="bg-zinc-900 px-1 py-0.5 rounded text-xs font-mono border border-zinc-600 text-white">
+                                    {children}
+                                  </code>
+                                ),
+                                pre: ({ children }) => (
+                                  <pre className="bg-zinc-900 p-2 rounded text-xs font-mono overflow-x-auto mb-2 border border-zinc-600">
+                                    {children}
+                                  </pre>
+                                ),
+                                h1: ({ children }) => (
+                                  <h1 className="text-lg font-bold mb-2 text-white">
+                                    {children}
+                                  </h1>
+                                ),
+                                h2: ({ children }) => (
+                                  <h2 className="text-base font-bold mb-2 text-white">
+                                    {children}
+                                  </h2>
+                                ),
+                                h3: ({ children }) => (
+                                  <h3 className="text-sm font-bold mb-1 text-white">
+                                    {children}
+                                  </h3>
+                                ),
+                                blockquote: ({ children }) => (
+                                  <blockquote className="border-l-2 border-white pl-2 italic mb-2 text-zinc-400">
+                                    {children}
+                                  </blockquote>
+                                ),
+                              }}
+                            >
+                              {message.content}
+                            </ReactMarkdown>
+                          </div>
+                        ) : (
+                          <div className="text-black">{message.content}</div>
+                        )}
+                      </div>
+                      <div
+                        className={`text-xs mt-2 ${
+                          message.type === "user"
+                            ? "text-black/60"
+                            : "text-zinc-500"
+                        }`}
+                      >
+                        {new Date(message.timestamp).toLocaleTimeString()}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Loading State */}
+              {isLoading && (
+                <div className="flex justify-start">
+                  <div className="bg-zinc-800/50 border border-zinc-700 rounded-lg p-4">
+                    <div className="flex items-center gap-3">
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                      <span className="text-zinc-300">AI is thinking...</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* No response yet */}
+              {messages.length === 1 && !isLoading && (
+                <div className="text-center py-8">
+                  <div className="w-16 h-16 bg-zinc-800/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Sparkles className="w-8 h-8 text-white" />
+                  </div>
+                  <p className="text-zinc-400 text-sm">
+                    Select an example question above or type your own question
+                    to get started
+                  </p>
+                </div>
+              )}
+
+              {/* Invisible div to scroll to */}
+              <div ref={messagesEndRef} />
             </div>
-          </div>
-        </SheetContent>
-      </Sheet>
+
+            {/* Fixed Footer with Chat Input */}
+            <div className="border-t border-zinc-700 p-4 bg-zinc-900/95 backdrop-blur">
+              <div className="flex space-x-3">
+                <input
+                  type="text"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  placeholder="Ask a question about CMMC compliance..."
+                  className="flex-1 px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-white text-sm"
+                  disabled={isLoading}
+                />
+                <Button
+                  onClick={handleSendMessage}
+                  disabled={isLoading || !inputValue.trim()}
+                  className="bg-white text-black hover:bg-zinc-200 px-6 py-3 shrink-0 flex items-center justify-center"
+                >
+                  {isLoading ? (
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-black"></div>
+                  ) : (
+                    <Send className="h-4 w-4" />
+                  )}
+                </Button>
+              </div>
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
     </div>
   );
 };
