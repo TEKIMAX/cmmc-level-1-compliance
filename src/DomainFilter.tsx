@@ -6,7 +6,11 @@ interface DomainFilterProps {
   onDomainChange: (domain: string) => void;
 }
 
-export function DomainFilter({ domains, selectedDomain, onDomainChange }: DomainFilterProps) {
+export function DomainFilter({
+  domains,
+  selectedDomain,
+  onDomainChange,
+}: DomainFilterProps) {
   return (
     <div className="flex flex-wrap gap-2">
       {domains.map((domain) => (
@@ -15,7 +19,11 @@ export function DomainFilter({ domains, selectedDomain, onDomainChange }: Domain
           variant={selectedDomain === domain ? "default" : "outline"}
           size="sm"
           onClick={() => onDomainChange(domain)}
-          className="text-xs"
+          className={`text-xs ${
+            selectedDomain === domain
+              ? "bg-white text-black hover:bg-zinc-200"
+              : "border-zinc-600 text-zinc-300 hover:bg-zinc-700 hover:text-white"
+          }`}
         >
           {domain === "all" ? "All Domains" : domain}
         </Button>

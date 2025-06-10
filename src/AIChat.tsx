@@ -5,13 +5,12 @@ import { toast } from "sonner";
 import type { Doc } from "../convex/_generated/dataModel";
 import { AIModelSettings, type AISettings } from "./AIModelSettings";
 import { DocumentManager } from "./DocumentManager";
-import { Settings, Bot, Send, FileText } from "lucide-react";
+import { Settings, Bot, Send, FileText, X } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { useRef, useEffect } from "react";
 
 interface AIChatProps {
   control: Doc<"controls">;
-  isOpen: boolean;
   onClose: () => void;
 }
 
@@ -22,7 +21,7 @@ interface Message {
   timestamp: number;
 }
 
-export function AIChat({ control, isOpen, onClose }: AIChatProps) {
+export function AIChat({ control, onClose }: AIChatProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
@@ -159,18 +158,16 @@ Provide helpful, accurate guidance about implementing this specific CMMC Level 1
     }
   };
 
-  if (!isOpen) return null;
-
   return (
     <>
-      <div className="fixed inset-y-0 right-0 w-96 bg-background shadow-2xl border-l border-border z-50 flex flex-col">
+      <div className="fixed inset-y-0 right-0 w-96 bg-zinc-800 shadow-2xl border-l border-zinc-700 z-50 flex flex-col backdrop-blur">
         {/* Header */}
-        <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between">
+        <div className="bg-zinc-700 text-white p-4 flex items-center justify-between border-b border-zinc-600">
           <div className="flex items-center gap-2">
             <Bot className="w-5 h-5" />
             <div>
               <h3 className="font-semibold text-sm">AI Assistant</h3>
-              <p className="text-xs opacity-80 truncate">
+              <p className="text-xs text-zinc-300 truncate">
                 {aiSettings.useLocalModel
                   ? `Local: ${aiSettings.selectedModel}`
                   : `Cloud: ${aiSettings.selectedModel}`}
@@ -180,65 +177,23 @@ Provide helpful, accurate guidance about implementing this specific CMMC Level 1
           <div className="flex items-center gap-2">
             <button
               onClick={() => setShowDocuments(true)}
-              className="text-primary-foreground hover:opacity-80 transition-opacity p-1 rounded"
+              className="text-zinc-300 hover:text-white transition-colors p-1 rounded"
               title="Manage Documents"
             >
               <FileText className="w-4 h-4" />
             </button>
             <button
               onClick={() => setShowSettings(true)}
-              className="text-primary-foreground hover:opacity-80 transition-opacity p-1 rounded"
+              className="text-zinc-300 hover:text-white transition-colors p-1 rounded"
               title="AI Settings"
             >
               <Settings className="w-4 h-4" />
             </button>
             <button
               onClick={onClose}
-              className="text-primary-foreground hover:opacity-80 transition-opacity"
+              className="text-zinc-300 hover:text-white transition-colors"
             >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* Control Info */}
-        <div className="bg-muted p-3 border-b border-border">
-          <div className="text-xs font-medium text-foreground mb-1">
-            {control.title}
-          </div>
-          <div className="text-xs text-muted-foreground line-clamp-2">
-            {control.description}
-          </div>
-        </div>
-
-        {/* Model Status Bar */}
-        <div className="bg-muted/50 px-3 py-2 border-b border-border">
-          <div className="flex items-center justify-between text-xs">
-            <div className="flex items-center gap-2">
-              <div
-                className={`w-2 h-2 rounded-full ${aiSettings.useLocalModel ? "bg-green-500" : "bg-blue-500"}`}
-              ></div>
-              <span className="text-muted-foreground">
-                {aiSettings.useLocalModel ? "Local Model" : "Cloud Model"}
-              </span>
-            </div>
-            <button
-              onClick={() => setShowSettings(true)}
-              className="text-primary hover:text-primary/80 font-medium"
-            >
-              Change Model
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -248,91 +203,42 @@ Provide helpful, accurate guidance about implementing this specific CMMC Level 1
           {messages.map((message) => (
             <div
               key={message.id}
-              className={`flex ${message.type === "user" ? "justify-end" : "justify-start"}`}
+              className={`flex ${
+                message.type === "user" ? "justify-end" : "justify-start"
+              }`}
             >
               <div
-                className={`max-w-[80%] rounded-lg p-3 text-sm ${
+                className={`max-w-[80%] px-3 py-2 rounded-lg ${
                   message.type === "user"
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-foreground"
+                    ? "bg-white text-black"
+                    : "bg-zinc-700 text-zinc-100"
                 }`}
               >
-                <div className="whitespace-pre-wrap">
-                  {message.type === "ai" ? (
-                    <div className="prose prose-sm max-w-none dark:prose-invert">
-                      <ReactMarkdown
-                        components={{
-                          p: ({ children }) => (
-                            <p className="mb-2 last:mb-0">{children}</p>
-                          ),
-                          ul: ({ children }) => (
-                            <ul className="list-disc list-inside mb-2 space-y-1">
-                              {children}
-                            </ul>
-                          ),
-                          ol: ({ children }) => (
-                            <ol className="list-decimal list-inside mb-2 space-y-1">
-                              {children}
-                            </ol>
-                          ),
-                          li: ({ children }) => (
-                            <li className="text-sm">{children}</li>
-                          ),
-                          strong: ({ children }) => (
-                            <strong className="font-semibold">
-                              {children}
-                            </strong>
-                          ),
-                          em: ({ children }) => (
-                            <em className="italic">{children}</em>
-                          ),
-                          code: ({ children }) => (
-                            <code className="bg-background px-1 py-0.5 rounded text-xs font-mono border">
-                              {children}
-                            </code>
-                          ),
-                          pre: ({ children }) => (
-                            <pre className="bg-background p-2 rounded text-xs font-mono overflow-x-auto mb-2 border">
-                              {children}
-                            </pre>
-                          ),
-                          h1: ({ children }) => (
-                            <h1 className="text-lg font-bold mb-2">
-                              {children}
-                            </h1>
-                          ),
-                          h2: ({ children }) => (
-                            <h2 className="text-base font-bold mb-2">
-                              {children}
-                            </h2>
-                          ),
-                          h3: ({ children }) => (
-                            <h3 className="text-sm font-bold mb-1">
-                              {children}
-                            </h3>
-                          ),
-                          blockquote: ({ children }) => (
-                            <blockquote className="border-l-2 border-muted-foreground pl-2 italic mb-2">
-                              {children}
-                            </blockquote>
-                          ),
-                        }}
-                      >
-                        {message.content}
-                      </ReactMarkdown>
-                    </div>
-                  ) : (
-                    message.content
-                  )}
-                </div>
-                <div
-                  className={`text-xs mt-1 ${
-                    message.type === "user"
-                      ? "opacity-80"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  {new Date(message.timestamp).toLocaleTimeString()}
+                <div className="prose prose-sm prose-invert max-w-none [&>*:first-child]:mt-0 [&>*:last-child]:mb-0">
+                  <ReactMarkdown
+                    components={{
+                      p: ({ children }) => (
+                        <p className="mb-2 last:mb-0 text-sm leading-relaxed">
+                          {children}
+                        </p>
+                      ),
+                      strong: ({ children }) => (
+                        <strong className="font-semibold text-white">
+                          {children}
+                        </strong>
+                      ),
+                      ul: ({ children }) => (
+                        <ul className="list-disc list-inside mb-2 last:mb-0">
+                          {children}
+                        </ul>
+                      ),
+                      li: ({ children }) => (
+                        <li className="text-sm mb-1">{children}</li>
+                      ),
+                    }}
+                  >
+                    {message.content}
+                  </ReactMarkdown>
                 </div>
               </div>
             </div>
@@ -340,60 +246,58 @@ Provide helpful, accurate guidance about implementing this specific CMMC Level 1
 
           {isLoading && (
             <div className="flex justify-start">
-              <div className="bg-muted rounded-lg p-3 text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
-                  <span className="text-muted-foreground">
-                    AI is thinking...
-                  </span>
+              <div className="bg-zinc-700 px-4 py-3 rounded-lg">
+                <div className="flex items-center gap-2 text-zinc-300">
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                  <span className="text-sm">AI is thinking...</span>
                 </div>
               </div>
             </div>
           )}
 
-          {/* Invisible div to scroll to */}
           <div ref={messagesEndRef} />
         </div>
 
         {/* Input */}
-        <div className="border-t border-border p-4">
+        <div className="border-t border-zinc-700 p-4">
           <div className="flex gap-2">
             <textarea
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="Ask about this control..."
-              className="flex-1 text-sm border border-input bg-background rounded-lg px-3 py-2 focus:ring-2 focus:ring-ring focus:border-ring resize-none"
+              className="flex-1 resize-none bg-zinc-700 border border-zinc-600 rounded-lg px-3 py-2 text-sm text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent"
               rows={2}
               disabled={isLoading}
             />
             <button
               onClick={handleSendMessage}
               disabled={!inputValue.trim() || isLoading}
-              className="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+              className="bg-white text-black hover:bg-zinc-200 disabled:bg-zinc-600 disabled:text-zinc-400 px-3 py-2 rounded-lg transition-colors"
             >
               <Send className="w-4 h-4" />
             </button>
           </div>
-          <div className="text-xs text-muted-foreground mt-2">
-            Press Enter to send, Shift+Enter for new line
-          </div>
         </div>
       </div>
 
-      {/* Document Manager Modal */}
-      <DocumentManager
-        isOpen={showDocuments}
-        onClose={() => setShowDocuments(false)}
-      />
+      {/* Settings Modal */}
+      {showSettings && (
+        <AIModelSettings
+          isOpen={showSettings}
+          currentSettings={aiSettings}
+          onSettingsChange={setAiSettings}
+          onClose={() => setShowSettings(false)}
+        />
+      )}
 
-      {/* AI Model Settings Modal */}
-      <AIModelSettings
-        isOpen={showSettings}
-        onClose={() => setShowSettings(false)}
-        onSettingsChange={setAiSettings}
-        currentSettings={aiSettings}
-      />
+      {/* Documents Modal */}
+      {showDocuments && (
+        <DocumentManager
+          isOpen={showDocuments}
+          onClose={() => setShowDocuments(false)}
+        />
+      )}
     </>
   );
 }

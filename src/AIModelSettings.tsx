@@ -133,15 +133,20 @@ export function AIModelSettings({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <Card className="w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/80 backdrop-blur flex items-center justify-center z-50 p-4">
+      <Card className="w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-zinc-800/90 border-zinc-700 backdrop-blur">
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-white">
               <Monitor className="w-5 h-5" />
               AI Model Configuration
             </CardTitle>
-            <Button variant="ghost" size="sm" onClick={onClose}>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              className="text-zinc-300 hover:text-white hover:bg-zinc-700"
+            >
               ×
             </Button>
           </div>
@@ -150,23 +155,23 @@ export function AIModelSettings({
         <CardContent className="space-y-6">
           {/* Model Type Toggle */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Model Provider</h3>
+            <h3 className="text-lg font-semibold text-white">Model Provider</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Card
-                className={`cursor-pointer transition-all ${!settings.useLocalModel ? "ring-2 ring-primary" : "hover:bg-muted"}`}
+                className={`cursor-pointer transition-all bg-zinc-700/50 border-zinc-600 ${!settings.useLocalModel ? "ring-2 ring-white" : "hover:bg-zinc-700"}`}
               >
                 <CardContent
                   className="p-4"
                   onClick={() => handleToggleModel(false)}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                      <Cloud className="w-5 h-5 text-blue-600" />
+                    <div className="w-10 h-10 bg-zinc-600 rounded-lg flex items-center justify-center">
+                      <Cloud className="w-5 h-5 text-blue-400" />
                     </div>
                     <div className="flex-1">
-                      <div className="font-medium">Cloud Models</div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="font-medium text-white">Cloud Models</div>
+                      <div className="text-sm text-zinc-400">
                         OpenAI GPT models
                       </div>
                     </div>
@@ -179,21 +184,19 @@ export function AIModelSettings({
               </Card>
 
               <Card
-                className={`cursor-pointer transition-all ${settings.useLocalModel ? "ring-2 ring-primary" : "hover:bg-muted"}`}
+                className={`cursor-pointer transition-all bg-zinc-700/50 border-zinc-600 ${settings.useLocalModel ? "ring-2 ring-white" : "hover:bg-zinc-700"}`}
               >
                 <CardContent
                   className="p-4"
                   onClick={() => handleToggleModel(true)}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                      <Monitor className="w-5 h-5 text-green-600" />
+                    <div className="w-10 h-10 bg-zinc-600 rounded-lg flex items-center justify-center">
+                      <Monitor className="w-5 h-5 text-green-400" />
                     </div>
                     <div className="flex-1">
-                      <div className="font-medium">Local Models</div>
-                      <div className="text-sm text-muted-foreground">
-                        Ollama models
-                      </div>
+                      <div className="font-medium text-white">Local Models</div>
+                      <div className="text-sm text-zinc-400">Ollama models</div>
                     </div>
                     <Switch
                       checked={settings.useLocalModel}
@@ -208,13 +211,15 @@ export function AIModelSettings({
           {/* Local Model Configuration */}
           {settings.useLocalModel && (
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold">
+              <h3 className="text-lg font-semibold text-white">
                 Local Model Configuration
               </h3>
 
               {/* Ollama Endpoint */}
               <div className="space-y-2">
-                <label className="text-sm font-medium">Ollama Endpoint</label>
+                <label className="text-sm font-medium text-zinc-400">
+                  Ollama Endpoint
+                </label>
                 <div className="flex gap-2">
                   <Input
                     value={settings.ollamaEndpoint}
@@ -239,7 +244,7 @@ export function AIModelSettings({
                 </div>
 
                 {/* Connection Status */}
-                <div className="flex items-center gap-2 text-sm">
+                <div className="flex items-center gap-2 text-sm text-zinc-400">
                   {connectionStatus === "connected" && (
                     <>
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -267,9 +272,11 @@ export function AIModelSettings({
 
               {/* Available Models */}
               <div className="space-y-2">
-                <label className="text-sm font-medium">Available Models</label>
+                <label className="text-sm font-medium text-zinc-400">
+                  Available Models
+                </label>
                 {isLoadingModels ? (
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2 text-sm text-zinc-400">
                     <RefreshCw className="w-4 h-4 animate-spin" />
                     Loading models...
                   </div>
@@ -278,10 +285,10 @@ export function AIModelSettings({
                     {settings.availableModels.map((model) => (
                       <Card
                         key={model}
-                        className={`cursor-pointer transition-all ${
+                        className={`cursor-pointer transition-all bg-zinc-700/50 border-zinc-600 ${
                           settings.selectedModel === model
-                            ? "ring-2 ring-primary bg-primary/5"
-                            : "hover:bg-muted"
+                            ? "ring-2 ring-white"
+                            : "hover:bg-zinc-700"
                         }`}
                         onClick={() =>
                           setSettings((prev) => ({
@@ -292,9 +299,14 @@ export function AIModelSettings({
                       >
                         <CardContent className="p-3">
                           <div className="flex items-center justify-between">
-                            <span className="font-medium">{model}</span>
+                            <span className="font-medium text-white">
+                              {model}
+                            </span>
                             {settings.selectedModel === model && (
-                              <Badge variant="default" className="text-xs">
+                              <Badge
+                                variant="default"
+                                className="text-xs text-zinc-400"
+                              >
                                 Selected
                               </Badge>
                             )}
@@ -304,7 +316,7 @@ export function AIModelSettings({
                     ))}
                   </div>
                 ) : (
-                  <div className="text-sm text-muted-foreground p-4 bg-muted rounded-lg">
+                  <div className="text-sm text-zinc-400 p-4 bg-zinc-700 rounded-lg">
                     No models found. Make sure Ollama is running and has models
                     installed.
                     <br />
@@ -320,20 +332,22 @@ export function AIModelSettings({
           {/* Cloud Model Configuration */}
           {!settings.useLocalModel && (
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold">
+              <h3 className="text-lg font-semibold text-white">
                 Cloud Model Configuration
               </h3>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium">Available Models</label>
+                <label className="text-sm font-medium text-zinc-400">
+                  Available Models
+                </label>
                 <div className="grid grid-cols-1 gap-2">
                   {cloudModels.map((model) => (
                     <Card
                       key={model}
-                      className={`cursor-pointer transition-all ${
+                      className={`cursor-pointer transition-all bg-zinc-700/50 border-zinc-600 ${
                         settings.selectedModel === model
-                          ? "ring-2 ring-primary bg-primary/5"
-                          : "hover:bg-muted"
+                          ? "ring-2 ring-white"
+                          : "hover:bg-zinc-700"
                       }`}
                       onClick={() =>
                         setSettings((prev) => ({
@@ -344,9 +358,14 @@ export function AIModelSettings({
                     >
                       <CardContent className="p-3">
                         <div className="flex items-center justify-between">
-                          <span className="font-medium">{model}</span>
+                          <span className="font-medium text-white">
+                            {model}
+                          </span>
                           {settings.selectedModel === model && (
-                            <Badge variant="default" className="text-xs">
+                            <Badge
+                              variant="default"
+                              className="text-xs text-zinc-400"
+                            >
                               Selected
                             </Badge>
                           )}
@@ -360,11 +379,18 @@ export function AIModelSettings({
           )}
 
           {/* Action Buttons */}
-          <div className="flex gap-2 pt-4 border-t">
-            <Button onClick={handleSave} className="flex-1">
+          <div className="flex gap-2 pt-4 border-t border-zinc-700">
+            <Button
+              onClick={handleSave}
+              className="flex-1 bg-white text-black hover:bg-zinc-200"
+            >
               Save Settings
             </Button>
-            <Button variant="outline" onClick={onClose} className="flex-1">
+            <Button
+              variant="outline"
+              onClick={onClose}
+              className="flex-1 border-zinc-600 text-zinc-300 hover:bg-zinc-700 hover:text-white"
+            >
               Cancel
             </Button>
           </div>

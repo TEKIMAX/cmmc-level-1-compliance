@@ -37,8 +37,8 @@ export function Dashboard() {
 
   if (!loggedInUser || !controls || !stats) {
     return (
-      <div className="flex justify-center items-center min-h-96">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      <div className="flex justify-center items-center min-h-96 bg-zinc-900">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
       </div>
     );
   }
@@ -77,7 +77,7 @@ export function Dashboard() {
               </div>
               <div className="flex items-center gap-4">
                 <div className="text-right">
-                  <div className="text-xl font-bold text-cyan-400">
+                  <div className="text-xl font-bold text-white">
                     {completionPercentage}%
                   </div>
                   <div className="text-xs text-zinc-400">Complete</div>
@@ -95,7 +95,7 @@ export function Dashboard() {
                       d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                     />
                     <path
-                      className="text-cyan-400"
+                      className="text-white"
                       stroke="currentColor"
                       strokeWidth="3"
                       strokeDasharray={`${completionPercentage}, 100`}

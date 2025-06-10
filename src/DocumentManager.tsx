@@ -230,221 +230,225 @@ Note: For full document text extraction, consider using libraries like mammoth.j
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <Card className="w-full max-w-6xl max-h-[90vh] overflow-hidden bg-zinc-900 border-zinc-700">
-        <CardHeader>
+    <div className="fixed inset-0 bg-black/80 backdrop-blur flex items-center justify-center z-50 p-4">
+      <Card className="w-full max-w-6xl max-h-[90vh] overflow-hidden bg-zinc-800/90 border-zinc-700 backdrop-blur">
+        <CardHeader className="pb-4">
           <div className="flex items-center justify-between">
             <CardTitle className="flex items-center gap-2 text-white">
               <FileText className="w-5 h-5" />
               Document Manager
             </CardTitle>
-            <Button variant="ghost" size="sm" onClick={onClose}>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              className="text-zinc-300 hover:text-white hover:bg-zinc-700"
+            >
               <X className="w-4 h-4" />
             </Button>
           </div>
         </CardHeader>
 
-        <CardContent className="space-y-6 overflow-y-auto max-h-[calc(90vh-120px)]">
-          {/* Upload Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* File Upload */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-white">
-                Upload from Computer
-              </h3>
-              <div className="border-2 border-dashed border-zinc-600 rounded-lg p-6 text-center bg-zinc-800/30">
-                <div className="space-y-4">
-                  <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center mx-auto">
-                    <Upload className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-white mb-2">
-                      Upload Document Files
-                    </h4>
-                    <p className="text-sm text-gray-400 mb-4">
-                      Supported: PDF, TXT, DOC, DOCX (Max 10MB)
-                    </p>
-                    <input
-                      ref={fileInputRef}
-                      type="file"
-                      accept=".pdf,.txt,.doc,.docx"
-                      onChange={handleFileUpload}
-                      className="hidden"
-                    />
+        <CardContent className="p-0">
+          <div className="max-h-[calc(90vh-120px)] overflow-y-auto">
+            <div className="p-6 space-y-6">
+              {/* Upload Section */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-white">
+                    Upload Documents
+                  </h3>
+                  <div className="flex gap-2">
                     <Button
                       onClick={() => fileInputRef.current?.click()}
                       disabled={isUploading}
-                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                      className="bg-white text-black hover:bg-zinc-200"
+                      size="sm"
                     >
-                      {isUploading ? (
-                        <>
-                          <Clock className="w-4 h-4 mr-2 animate-spin" />
-                          Uploading...
-                        </>
-                      ) : (
-                        <>
-                          <Upload className="w-4 h-4 mr-2" />
-                          Choose File
-                        </>
-                      )}
+                      <Upload className="w-4 h-4 mr-2" />
+                      {isUploading ? "Uploading..." : "Upload File"}
+                    </Button>
+                    <Button
+                      onClick={() => setIsCreating(!isCreating)}
+                      variant="outline"
+                      size="sm"
+                      className="border-zinc-600 text-zinc-300 hover:bg-zinc-700 hover:text-white"
+                    >
+                      <Plus className="w-4 h-4 mr-2" />
+                      Create Document
                     </Button>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Text Creation */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-white">
-                Create Text Document
-              </h3>
-              <div className="space-y-3">
-                <div className="grid grid-cols-2 gap-3">
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  onChange={handleFileUpload}
+                  accept=".pdf,.txt,.doc,.docx"
+                  className="hidden"
+                />
+              </div>
+
+              {/* Text Creation */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white">
+                  Create Text Document
+                </h3>
+                <div className="space-y-3">
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-zinc-300">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        value={newDocName}
+                        onChange={(e) => setNewDocName(e.target.value)}
+                        placeholder="Document name..."
+                        className="w-full px-3 py-2 bg-zinc-700 border border-zinc-600 rounded-md text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-white"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-zinc-300">
+                        Type
+                      </label>
+                      <select
+                        value={newDocType}
+                        onChange={(e) =>
+                          setNewDocType(
+                            e.target.value as
+                              | "policy"
+                              | "procedure"
+                              | "evidence"
+                              | "other"
+                          )
+                        }
+                        className="w-full px-3 py-2 bg-zinc-700 border border-zinc-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-white"
+                      >
+                        <option value="policy">Policy</option>
+                        <option value="procedure">Procedure</option>
+                        <option value="evidence">Evidence</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">
-                      Name
+                    <label className="text-sm font-medium text-zinc-300">
+                      Content
                     </label>
-                    <input
-                      type="text"
-                      value={newDocName}
-                      onChange={(e) => setNewDocName(e.target.value)}
-                      placeholder="Document name..."
-                      className="w-full px-3 py-2 bg-zinc-800 border border-zinc-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    <textarea
+                      value={newDocContent}
+                      onChange={(e) => setNewDocContent(e.target.value)}
+                      placeholder="Enter document content..."
+                      rows={4}
+                      className="w-full px-3 py-2 bg-zinc-700 border border-zinc-600 rounded-md text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-white resize-none"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">
-                      Type
-                    </label>
-                    <select
-                      value={newDocType}
-                      onChange={(e) =>
-                        setNewDocType(
-                          e.target.value as
-                            | "policy"
-                            | "procedure"
-                            | "evidence"
-                            | "other"
-                        )
-                      }
-                      className="w-full px-3 py-2 bg-zinc-800 border border-zinc-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="policy">Policy</option>
-                      <option value="procedure">Procedure</option>
-                      <option value="evidence">Evidence</option>
-                      <option value="other">Other</option>
-                    </select>
+                  <Button
+                    onClick={() => void handleCreateDocument()}
+                    disabled={
+                      isCreating || !newDocName.trim() || !newDocContent.trim()
+                    }
+                    className="w-full bg-white text-black hover:bg-zinc-200"
+                  >
+                    {isCreating ? (
+                      <>
+                        <Clock className="w-4 h-4 mr-2 animate-spin" />
+                        Creating...
+                      </>
+                    ) : (
+                      <>
+                        <Plus className="w-4 h-4 mr-2" />
+                        Create Document
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </div>
+
+              {/* Documents List */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-white">
+                    Your Documents
+                  </h3>
+                  <div className="text-sm text-gray-400">
+                    {documents.length} document
+                    {documents.length !== 1 ? "s" : ""}
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-300">
-                    Content
-                  </label>
-                  <textarea
-                    value={newDocContent}
-                    onChange={(e) => setNewDocContent(e.target.value)}
-                    placeholder="Enter document content..."
-                    rows={4}
-                    className="w-full px-3 py-2 bg-zinc-800 border border-zinc-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                  />
-                </div>
-                <Button
-                  onClick={() => void handleCreateDocument()}
-                  disabled={
-                    isCreating || !newDocName.trim() || !newDocContent.trim()
-                  }
-                  className="w-full bg-green-600 hover:bg-green-700 text-white"
-                >
-                  {isCreating ? (
-                    <>
-                      <Clock className="w-4 h-4 mr-2 animate-spin" />
-                      Creating...
-                    </>
-                  ) : (
-                    <>
-                      <Plus className="w-4 h-4 mr-2" />
-                      Create Document
-                    </>
-                  )}
-                </Button>
-              </div>
-            </div>
-          </div>
 
-          {/* Documents List */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg font-semibold text-white">
-                Your Documents
-              </h3>
-              <div className="text-sm text-gray-400">
-                {documents.length} document{documents.length !== 1 ? "s" : ""}
+                {documents.length === 0 ? (
+                  <div className="text-center py-8 text-gray-400">
+                    <FileText className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                    <p>No documents created yet</p>
+                    <p className="text-sm">
+                      Upload files or create text documents to enhance AI
+                      responses
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    {documents.map((doc) => (
+                      <Card
+                        key={doc._id}
+                        className="bg-zinc-800 border-zinc-700"
+                      >
+                        <CardContent className="p-4">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3 flex-1 min-w-0">
+                              <File className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <h4 className="font-medium text-white truncate">
+                                    {doc.name}
+                                  </h4>
+                                  <Badge
+                                    variant="outline"
+                                    className="capitalize text-xs"
+                                  >
+                                    {doc.type || "other"}
+                                  </Badge>
+                                </div>
+                                <div className="flex items-center gap-4 text-sm text-gray-400">
+                                  <span>{formatDate(doc.uploadedAt)}</span>
+                                  {getEmbeddingStatusBadge(doc)}
+                                </div>
+                              </div>
+                            </div>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() =>
+                                void handleDelete(doc._id, doc.name)
+                              }
+                              className="text-red-400 hover:text-red-300 hover:bg-red-600/20 flex-shrink-0"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                )}
               </div>
-            </div>
 
-            {documents.length === 0 ? (
-              <div className="text-center py-8 text-gray-400">
-                <FileText className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                <p>No documents created yet</p>
-                <p className="text-sm">
-                  Upload files or create text documents to enhance AI responses
+              <div className="text-xs text-gray-500 space-y-1">
+                <p>
+                  • Documents uploaded/created here will be available for RAG
+                  functionality
+                </p>
+                <p>
+                  • Use the Documents page to generate embeddings using Ollama
+                  models like mxbai-embed-large
+                </p>
+                <p>
+                  • For full PDF/DOC text extraction, consider integrating
+                  pdf-parse or mammoth.js libraries
                 </p>
               </div>
-            ) : (
-              <div className="space-y-3">
-                {documents.map((doc) => (
-                  <Card key={doc._id} className="bg-zinc-800 border-zinc-700">
-                    <CardContent className="p-4">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3 flex-1 min-w-0">
-                          <File className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 mb-1">
-                              <h4 className="font-medium text-white truncate">
-                                {doc.name}
-                              </h4>
-                              <Badge
-                                variant="outline"
-                                className="capitalize text-xs"
-                              >
-                                {doc.type || "other"}
-                              </Badge>
-                            </div>
-                            <div className="flex items-center gap-4 text-sm text-gray-400">
-                              <span>{formatDate(doc.uploadedAt)}</span>
-                              {getEmbeddingStatusBadge(doc)}
-                            </div>
-                          </div>
-                        </div>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => void handleDelete(doc._id, doc.name)}
-                          className="text-red-400 hover:text-red-300 hover:bg-red-600/20 flex-shrink-0"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div className="text-xs text-gray-500 space-y-1">
-            <p>
-              • Documents uploaded/created here will be available for RAG
-              functionality
-            </p>
-            <p>
-              • Use the Documents page to generate embeddings using Ollama
-              models like mxbai-embed-large
-            </p>
-            <p>
-              • For full PDF/DOC text extraction, consider integrating pdf-parse
-              or mammoth.js libraries
-            </p>
+            </div>
           </div>
         </CardContent>
       </Card>
