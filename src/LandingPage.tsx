@@ -20,6 +20,10 @@ import {
   Lock,
   Zap,
   Target,
+  Database,
+  Server,
+  Terminal,
+  Settings,
 } from "lucide-react";
 
 interface LandingPageProps {
@@ -77,8 +81,20 @@ export function LandingPage({ onShowAuth, onShowDocs }: LandingPageProps) {
       </nav>
 
       {/* Hero Section */}
-      <div className="container mx-auto px-4 py-24">
-        <div className="text-center max-w-4xl mx-auto">
+      <div className="relative container mx-auto px-4 py-24">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 overflow-hidden pointer-events-none"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1663895064411-fff0ab8a9797?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            filter: "grayscale(100%) opacity(0.3)",
+          }}
+        />
+
+        <div className="relative text-center max-w-4xl mx-auto">
           {/* Hero Badge */}
           <div className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-full px-4 py-2 mb-8">
             <Sparkles className="w-4 h-4 text-zinc-400" />
@@ -90,18 +106,18 @@ export function LandingPage({ onShowAuth, onShowDocs }: LandingPageProps) {
 
           {/* Main Heading */}
           <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 leading-tight">
-            Empower Your
-            <span className="block text-zinc-400">Small Business</span>
-            With CMMC Level 1
+            Start here for
+            <span className="block text-zinc-400">CMMC Level 1</span>
           </h1>
 
           {/* Subheading */}
           <p className="text-lg text-zinc-400 mb-8 leading-relaxed max-w-3xl mx-auto">
-            We built this open-source platform during our own CMMC compliance
-            journey. This isn't a service we sell - it's a community tool to
-            help fellow small businesses navigate NIST SP 800-171 Rev.2
-            requirements and achieve CMMC Level 1 certification. Self-host
-            everything locally for complete data control.
+            Learn CMMC Level 1 compliance while implementing it. Your local AI
+            assistant (running on your own machine) helps answer questions with
+            contextual guidance based on RAG (Retrieval Augmented Generation)
+            from your specific controls and progress. Built by small business
+            owners who navigated compliance themselves - this isn't a service we
+            sell, it's a community tool.
           </p>
 
           {/* CTA Buttons */}
@@ -184,11 +200,12 @@ export function LandingPage({ onShowAuth, onShowDocs }: LandingPageProps) {
                   <Sparkles className="w-5 h-5 text-zinc-400" />
                 </div>
                 <CardTitle className="text-white text-lg">
-                  AI-Powered Insights
+                  Your Local AI Assistant
                 </CardTitle>
                 <CardDescription className="text-zinc-400">
-                  Get intelligent recommendations and guidance to accelerate
-                  your compliance efforts with local AI models
+                  Ask questions about any control and get contextual answers
+                  based on your current implementation status using your own
+                  local AI models running on your machine with RAG capabilities
                 </CardDescription>
               </CardHeader>
             </Card>
