@@ -2,8 +2,6 @@
 
 <div align="center">
   <img src="https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/vmby46tevqgow4x9b48u" alt="Tekimax LLC Logo" width="100" height="100">
-  <br>
-  <strong>By Tekimax LLC</strong>
 </div>
 
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)

@@ -127,31 +127,31 @@ export const Documentation: React.FC<DocumentationProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-zinc-900">
+    <div className="min-h-screen bg-zinc-950">
       {/* Header */}
-      <div className="border-b border-zinc-700 bg-zinc-800/50 backdrop-blur-sm sticky top-0 z-40">
+      <div className="border-b border-zinc-800 bg-zinc-900 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <Shield className="w-5 h-5 text-white" />
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-zinc-800 rounded-lg flex items-center justify-center">
+                <Shield className="w-5 h-5 text-zinc-400" />
               </div>
               <div>
-                <h1 className="text-xl font-semibold text-white">
+                <h1 className="text-lg font-semibold text-white">
                   CMMC Compass Documentation
                 </h1>
                 <div className="flex items-center gap-2">
-                  <p className="text-sm text-zinc-400">
+                  <p className="text-xs text-zinc-500">
                     Open-source CMMC Level 1 compliance platform
                   </p>
-                  <span className="text-zinc-600">•</span>
+                  <span className="text-zinc-700">•</span>
                   <div className="flex items-center gap-1">
                     <img
                       src="https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/vmby46tevqgow4x9b48u"
                       alt="Tekimax LLC"
-                      className="w-4 h-4 rounded"
+                      className="w-3 h-3 rounded"
                     />
-                    <span className="text-sm text-zinc-400">
+                    <span className="text-xs text-zinc-500">
                       By Tekimax LLC
                     </span>
                   </div>
@@ -163,15 +163,12 @@ export const Documentation: React.FC<DocumentationProps> = ({
                 variant="outline"
                 size="sm"
                 onClick={handleBackClick}
-                className="flex items-center gap-2"
+                className="border-zinc-700 text-zinc-300 hover:bg-zinc-800"
               >
                 <ChevronRight className="w-4 h-4 rotate-180" />
                 {backButtonText}
               </Button>
-              <Badge
-                variant="outline"
-                className="border-green-600 text-green-400 bg-green-900/20"
-              >
+              <Badge className="bg-zinc-800 text-zinc-400 border-zinc-700">
                 v1.0.0
               </Badge>
               <Button variant="outline" size="sm" asChild>
@@ -179,7 +176,7 @@ export const Documentation: React.FC<DocumentationProps> = ({
                   href="https://github.com/tekimax/cmmc-level-1-compliance"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+                  className="border-zinc-700 text-zinc-300 hover:bg-zinc-800"
                 >
                   <GitBranch className="w-4 h-4" />
                   GitHub
