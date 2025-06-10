@@ -9,6 +9,8 @@
 </div>
 
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/TEKIMAX/cmmc-level-1-compliance?include_prereleases&style=flat-square)](https://github.com/TEKIMAX/cmmc-level-1-compliance/releases)
+[![Version](https://img.shields.io/github/package-json/v/TEKIMAX/cmmc-level-1-compliance?style=flat-square)](https://github.com/TEKIMAX/cmmc-level-1-compliance)
 [![Open Source](https://img.shields.io/badge/Open%20Source-Community%20Driven-brightgreen.svg)]()
 [![Self-Hosted](https://img.shields.io/badge/Deployment-Self--Hosted-blue.svg)]()
 

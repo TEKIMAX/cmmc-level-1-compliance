@@ -1,7 +1,7 @@
 {
   "name": "cmmc-level-1-compliance-manager",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "npm-run-all --parallel dev:frontend dev:backend dev:ollama-api",
