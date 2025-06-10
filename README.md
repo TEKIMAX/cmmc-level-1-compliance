@@ -60,14 +60,14 @@ We are **Tekimax LLC**, a small technology business that went through CMMC Level
 When we started our CMMC Level 1 journey, we discovered:
 
 ### The Problems We Faced
-- 💰 **Expensive Solutions**: Most CMMC tools cost $10,000+ annually - too much for small businesses
+- 💰 **Expensive Solutions**: Most CMMC tools are too expensive for small businesses
 - 🏢 **Enterprise-Focused**: Existing tools designed for large corporations, not small teams
 - ☁️ **Cloud Dependency**: Compliance data stored on vendor servers, creating new security risks
 - 🔒 **Vendor Lock-in**: Proprietary platforms that trap your compliance data
 - 📚 **Complex Setup**: Solutions requiring extensive IT teams to implement
 
 ### Our Solution Philosophy
-- 🎯 **Small Business First**: Built for teams of 5-50 people, not Fortune 500 companies
+- 🎯 **Small Business First**: Built for small teams, not enterprise corporations
 - 💻 **Self-Hosted by Default**: Your compliance data stays on your infrastructure
 - 🆓 **Completely Free**: MIT licensed - use, modify, and distribute without restrictions
 - 🛠️ **Community Driven**: Improvements come from real small businesses facing real challenges
