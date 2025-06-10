@@ -127,7 +127,7 @@ export function LandingPage({ onShowAuth, onShowDocs }: LandingPageProps) {
               size="lg"
               className="bg-white text-zinc-950 hover:bg-zinc-200 text-base"
             >
-              Start Your Small Business Journey
+              Create an account
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
             <Button
@@ -363,7 +363,7 @@ export function LandingPage({ onShowAuth, onShowDocs }: LandingPageProps) {
                 size="lg"
                 className="bg-white text-zinc-950 hover:bg-zinc-200"
               >
-                Get Started Today
+                Create an account
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
               <Button

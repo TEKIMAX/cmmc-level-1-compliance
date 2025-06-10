@@ -4,6 +4,10 @@
   <img src="https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/vmby46tevqgow4x9b48u" alt="Tekimax LLC Logo" width="100" height="100">
 </div>
 
+<div align="center">
+  <img src="src/public/cmmc.png" alt="CMMC Compass Platform Preview" width="800" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); margin: 20px 0;">
+</div>
+
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Open Source](https://img.shields.io/badge/Open%20Source-Community%20Driven-brightgreen.svg)]()
 [![Self-Hosted](https://img.shields.io/badge/Deployment-Self--Hosted-blue.svg)]()
