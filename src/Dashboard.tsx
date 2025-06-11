@@ -13,6 +13,8 @@ import {
   CardTitle,
 } from "./components/ui/card";
 import { Input } from "./components/ui/input";
+import { Button } from "./components/ui/button";
+import { AlertTriangle, X } from "lucide-react";
 
 export function Dashboard() {
   const loggedInUser = useQuery(api.auth.loggedInUser);
@@ -22,6 +24,20 @@ export function Dashboard() {
 
   const [selectedDomain, setSelectedDomain] = useState<string>("all");
   const [searchTerm, setSearchTerm] = useState("");
+  const [showDisclaimer, setShowDisclaimer] = useState(true);
+
+  // Check if disclaimer has been dismissed before
+  useEffect(() => {
+    const disclaimerDismissed = localStorage.getItem("cmmc_disclaimer_dismissed");
+    if (disclaimerDismissed === "true") {
+      setShowDisclaimer(false);
+    }
+  }, []);
+
+  const handleDismissDisclaimer = () => {
+    setShowDisclaimer(false);
+    localStorage.setItem("cmmc_disclaimer_dismissed", "true");
+  };
 
   useEffect(() => {
     if (loggedInUser && controls && controls.length === 0) {
@@ -62,6 +78,37 @@ export function Dashboard() {
   return (
     <div className="min-h-screen bg-zinc-900 p-4">
       <div className="max-w-7xl mx-auto space-y-6">
+        {/* AI Disclaimer Badge */}
+        {showDisclaimer && (
+          <Card className="bg-amber-900/20 border-amber-600/30 backdrop-blur">
+            <CardContent className="p-4">
+              <div className="flex items-start gap-3">
+                <AlertTriangle className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-sm font-semibold text-amber-200">
+                      Important Disclaimer
+                    </h3>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={handleDismissDisclaimer}
+                      className="h-6 w-6 p-0 text-amber-400 hover:text-amber-200 hover:bg-amber-800/20"
+                    >
+                      <X className="w-4 h-4" />
+                    </Button>
+                  </div>
+                  <p className="text-sm text-amber-100/90 leading-relaxed">
+                    <strong>AI Interpretation Notice:</strong> This tool uses AI to help interpret CMMC requirements and may not always provide accurate information. 
+                    The AI might misinterpret or provide incomplete guidance. This platform is designed to help you get started with your CMMC Level 1 compliance journey, 
+                    but should not be your only resource. Always consult with certified CMMC professionals and official NIST documentation for authoritative guidance.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
         {/* Header */}
         <Card className="bg-zinc-800/50 border-zinc-700 backdrop-blur">
           <CardHeader className="pb-4">
