@@ -99,8 +99,7 @@ export function LandingPage({ onShowAuth, onShowDocs }: LandingPageProps) {
           <div className="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-full px-4 py-2 mb-8">
             <Sparkles className="w-4 h-4 text-zinc-400" />
             <span className="text-sm text-zinc-300">
-             For Small Businesses, By Small
-              Business
+              For Small Businesses, By Small Business
             </span>
           </div>
 
@@ -111,13 +110,10 @@ export function LandingPage({ onShowAuth, onShowDocs }: LandingPageProps) {
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg text-zinc-400 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Learn CMMC Level 1 compliance while implementing it. Your local AI
-            assistant (running on your own machine) helps answer questions with
-            contextual guidance based on RAG (Retrieval Augmented Generation)
-            from your specific controls and progress. Built by small business
-            owners who navigated compliance themselves - this isn't a service we
-            sell, it's a community tool.
+          <p className="text-lg text-zinc-400 max-w-3xl mx-auto mb-10">
+            Free CMMC compliance platform. Run it locally with your own AI. Keep
+            your data private. Built by small businesses, for small businesses.
+            - this isn't a service we sell, it's a community tool.
           </p>
 
           {/* CTA Buttons */}
@@ -171,10 +167,9 @@ export function LandingPage({ onShowAuth, onShowDocs }: LandingPageProps) {
               Community-Built CMMC Level 1 Platform
             </h2>
             <p className="text-lg text-zinc-400 max-w-3xl mx-auto">
-              Self-hosted compliance management with local AI processing. No
-              vendor lock-in, no monthly fees, no data leaving your premises.
-              Built by small business owners who've been through the CMMC
-              journey.
+              Free CMMC compliance platform. Run it locally with your own AI.
+              Keep your data private. Built by small businesses, for small
+              businesses.
             </p>
           </div>
 
