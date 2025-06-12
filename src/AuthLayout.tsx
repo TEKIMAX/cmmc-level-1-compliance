@@ -90,7 +90,7 @@ export function AuthLayout({ onBack }: AuthLayoutProps) {
 
         {/* Footer */}
         <div className="text-center mt-6 text-xs text-zinc-500">
-          <p>MIT Licensed • Open Source • Community Driven</p>
+          <p>Apache 2.0 Licensed • Open Source • Community Driven</p>
         </div>
       </div>
     </div>

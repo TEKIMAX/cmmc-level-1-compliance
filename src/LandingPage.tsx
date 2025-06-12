@@ -257,7 +257,7 @@ export function LandingPage({ onShowAuth, onShowDocs }: LandingPageProps) {
                   <Github className="w-5 h-5 text-zinc-400" />
                 </div>
                 <CardTitle className="text-white text-lg">
-                  MIT Licensed & Open Source
+                  Apache 2.0 Licensed & Open Source
                 </CardTitle>
                 <CardDescription className="text-zinc-400">
                   Completely free, transparent, and auditable. Community-driven
@@ -393,7 +393,9 @@ export function LandingPage({ onShowAuth, onShowDocs }: LandingPageProps) {
               </div>
             </div>
             <div className="text-zinc-500 text-sm text-center">
-              <div>© 2025 Tekimax LLC. MIT Licensed - Free & Open Source.</div>
+              <div>
+                © 2025 Tekimax LLC. Apache 2.0 Licensed - Free & Open Source.
+              </div>
               <div className="text-xs mt-1">
                 Built by small business owners, for small business owners.
                 Community-driven CMMC compliance.

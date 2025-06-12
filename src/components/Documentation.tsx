@@ -1054,7 +1054,9 @@ export const Documentation: React.FC<DocumentationProps> = ({
                     </h3>
                     <div className="space-y-4 text-sm text-zinc-300">
                       <p>
-                        <strong className="text-white">MIT License:</strong>{" "}
+                        <strong className="text-white">
+                          Apache 2.0 License:
+                        </strong>{" "}
                         This software is provided "as is" without warranty of
                         any kind. Use at your own risk. We built this during our
                         own CMMC journey and share it freely with the community.
@@ -1089,8 +1091,8 @@ export const Documentation: React.FC<DocumentationProps> = ({
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm text-zinc-400">
-                        © 2025 Tekimax LLC. MIT Licensed - Free & Open Source
-                        Community Tool.
+                        © 2025 Tekimax LLC. Apache 2.0 Licensed - Free & Open
+                        Source Community Tool.
                       </p>
                       <p className="text-xs text-zinc-500 mt-1">
                         Built by small business owners, for small business

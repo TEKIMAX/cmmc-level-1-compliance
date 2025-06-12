@@ -197,7 +197,7 @@ export function Documentation({ onBack }: DocumentationProps) {
                   <div>
                     <div className="text-white font-medium">Open Source</div>
                     <p className="text-sm text-zinc-400">
-                      MIT licensed, community-driven development
+                      Apache 2.0 licensed, community-driven development
                     </p>
                   </div>
                 </div>
@@ -305,14 +305,6 @@ export function Documentation({ onBack }: DocumentationProps) {
               <div>
                 <h4 className="text-white font-semibold mb-3">Cloud Models</h4>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Badge className="bg-blue-600 text-white border-blue-500">
-                      GPT-4.1-nano
-                    </Badge>
-                    <span className="text-sm text-zinc-400">
-                      Fast, efficient responses
-                    </span>
-                  </div>
                   <div className="flex items-center gap-2">
                     <Badge className="bg-blue-600 text-white border-blue-500">
                       GPT-4o-mini
