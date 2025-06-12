@@ -1,11 +1,18 @@
 # CMMC Compass - Community CMMC Level 1
 
+## Quick Navigation
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [Prerequisites](#prerequisites)
+- [About Convex Open Source](#about-convex-open-source)
+- [License & Disclaimer](#-license--disclaimer)
+- [Support](#-support)
 
 <div align="center">
   <img src="src/public/cmmc.png" alt="CMMC Compass Platform Preview" width="800" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); margin: 20px 0;">
 </div>
 
-[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/TEKIMAX/cmmc-level-1-compliance?include_prereleases&style=flat-square)](https://github.com/TEKIMAX/cmmc-level-1-compliance/releases)
 [![Version](https://img.shields.io/github/package-json/v/TEKIMAX/cmmc-level-1-compliance?style=flat-square)](https://github.com/TEKIMAX/cmmc-level-1-compliance)
 [![Open Source](https://img.shields.io/badge/Open%20Source-Community%20Driven-brightgreen.svg)]()
@@ -32,7 +39,9 @@ A comprehensive platform for managing CMMC (Cybersecurity Maturity Model Certifi
 
 - **Node.js** (v18 or later)
 - **Bun** package manager
-- **Convex** account ([Sign up free](https://dashboard.convex.dev/))
+- **Convex (Open Source/Self-Hosted Recommended):**
+  - [Convex Self-Hosting Guide](https://docs.convex.dev/self-hosting)
+  - [Convex Open Source GitHub](https://github.com/get-convex/convex-backend)
 - **Ollama** (optional, for local AI models)
 
 ### Installation
@@ -183,7 +192,7 @@ The platform includes all 17 CMMC Level 1 controls:
 
 **Built by Small Business Owners, For Small Business Owners**
 
-We are **Tekimax LLC**, a small technology business that went through CMMC Level 1 compliance ourselves. When we couldn't find affordable, privacy-focused compliance tools designed for small businesses, we built our own. Instead of keeping it proprietary, we open-sourced it under the MIT license so the entire small business community can benefit.
+We are **Tekimax LLC**, a small technology business that went through CMMC Level 1 compliance ourselves. When we couldn't find affordable, privacy-focused compliance tools designed for small businesses, we built our own. Instead of keeping it proprietary, we open-sourced it under the Apache 2.0 license so the entire small business community can benefit.
 
 ### Our Story
 - 🏢 **Small Business Focus**: We understand the unique challenges small businesses face with compliance
@@ -196,148 +205,92 @@ We are **Tekimax LLC**, a small technology business that went through CMMC Level
 **Complete CMMC Level 1 Compliance Management - 100% Self-Hosted**
 
 ### Core Features
-- ✅ **All 17 CMMC Level 1 Controls** - Complete coverage across 6 NIST domains
-- 📊 **Real-Time Dashboards** - Track implementation progress and compliance status
-- 🤖 **Local AI Assistant** - CMMC guidance using local Ollama models (no data sent to cloud)
-- 📁 **Document Management** - Upload policies, procedures, and evidence with local processing
-- 🔍 **RAG Search** - Semantic search through your compliance documents
-- 📝 **Audit Logging** - Comprehensive tracking for compliance evidence
-- 👥 **Assignment Management** - Track control ownership and due dates
+- 📊 **Real-time Dashboard**: Track implementation progress across all 17 controls
+- 🤖 **AI Assistant**: Get contextual guidance for each control using local or cloud AI
+- 📁 **Document Management**: Upload, organize, and search compliance documents
+- ✅ **Implementation Tracking**: Mark controls as Not Started → In Progress → Implemented → Verified
+- 📋 **Audit Logs**: Maintain complete records for assessor review
+- 🔍 **Smart Search**: Find relevant information across all your compliance documents
 
-### Technical Stack
-- **Frontend**: React + TypeScript + Tailwind CSS
-- **Backend**: Convex (self-hosted recommended, cloud optional)
-- **AI Processing**: Ollama (100% local, privacy-preserving)
-- **Database**: Convex with vector storage for document embeddings
-- **Authentication**: Convex Auth (can run completely offline)
-
-### Self-Hosting Benefits
-- 🔐 **Complete Data Control** - Your compliance data never leaves your infrastructure
-- 💸 **No Monthly Fees** - One-time setup, no ongoing subscription costs
-- 🚫 **No Vendor Lock-in** - Open source means you control your destiny
-- 🏠 **On-Premises Deployment** - Perfect for security-conscious organizations
-- ⚡ **Local AI Processing** - Fast responses without internet dependency
-
-## 💡 WHY We Built This
-
-**The Small Business CMMC Challenge**
-
-When we started our CMMC Level 1 journey, we discovered:
-
-### The Problems We Faced
-- 💰 **Expensive Solutions**: Most CMMC tools are too expensive for small businesses
-- 🏢 **Enterprise-Focused**: Existing tools designed for large corporations, not small teams
-- ☁️ **Cloud Dependency**: Compliance data stored on vendor servers, creating new security risks
-- 🔒 **Vendor Lock-in**: Proprietary platforms that trap your compliance data
-- 📚 **Complex Setup**: Solutions requiring extensive IT teams to implement
-
-### Our Solution Philosophy
-- 🎯 **Small Business First**: Built for small teams, not enterprise corporations
-- 💻 **Self-Hosted by Default**: Your compliance data stays on your infrastructure
-- 🆓 **Completely Free**: MIT licensed - use, modify, and distribute without restrictions
-- 🛠️ **Community Driven**: Improvements come from real small businesses facing real challenges
-- 📖 **Transparent**: Open source means you can audit every line of code
-
-### Why Open Source?
-We chose the MIT license because:
-- 🤝 **Community Over Profit**: We want to help other small businesses, not sell them services
-- 🔍 **Full Transparency**: You can see exactly how your compliance data is handled
+### Why We Built This
+- 🆓 **Completely Free**: Apache 2.0 licensed - use, modify, and distribute without restrictions
+- 🏠 **Self-Hosted**: Your data stays on your infrastructure - no cloud dependencies
+- 🔒 **Privacy-First**: No telemetry, no tracking, no data collection
 - 🛡️ **Security Through Openness**: Community review makes the platform more secure
 - 🚀 **Continuous Improvement**: Features driven by real user needs, not sales targets
 
+We chose the Apache 2.0 license because:
+- ✅ **Maximum Freedom**: Use commercially without restrictions
+- ✅ **Patent Protection**: Includes explicit patent grants
+- ✅ **Attribution**: Simple requirements that respect contributors
+- ✅ **Enterprise Friendly**: Compatible with most corporate policies
+
 ## 🏗️ Architecture & Deployment
 
-### Recommended Self-Hosted Setup
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Your Server   │    │   Your Server   │    │   Your Server   │
-│                 │    │                 │    │                 │
-│  React Frontend │◄──►│ Convex Backend  │◄──►│  Ollama AI      │
-│                 │    │                 │    │                 │
-│  Port: 5175     │    │  Self-Hosted    │    │  Port: 11434    │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-```
+### Self-Hosting Options
+1. **Convex Self-Hosted** (Recommended)
+   - Complete data sovereignty
+   - Enterprise-grade security
+   - Full feature compatibility
 
-### Benefits of Self-Hosting
-- 🔐 **Data Sovereignty**: Your compliance data never leaves your premises
-- ⚡ **Performance**: Local processing is faster than cloud round-trips
-- 💰 **Cost Control**: No monthly subscription fees
-- 🛡️ **Security**: Reduced attack surface with no external dependencies
-- 📊 **Compliance**: Easier to demonstrate data protection to assessors
+2. **Convex Cloud** (Alternative)
+   - Faster setup for development
+   - Still maintains data privacy
+   - Easy migration to self-hosted later
 
-## 🤖 AI Features (100% Local)
-
-### Privacy-Preserving AI with Ollama
-- 🏠 **Local Processing**: All AI computation happens on your hardware
-- 🚫 **No Data Sharing**: Your compliance questions never leave your network
-- ⚡ **Fast Responses**: Local models provide instant feedback
-- 🔒 **Offline Capable**: Works without internet connectivity
-
-### RAG (Retrieval Augmented Generation)
-- 📄 **Document Understanding**: Upload policies, procedures, and evidence
-- 🧠 **Context-Aware Responses**: AI references your specific organizational documents
-- 🔍 **Semantic Search**: Find relevant compliance information instantly
-- 📚 **Knowledge Base**: Build your organization's compliance knowledge repository
+### Technology Stack
+- **Frontend**: React 19, TypeScript, Tailwind CSS
+- **Backend**: Convex (self-hostable)
+- **AI**: Ollama (local) or OpenAI (cloud)
+- **Database**: Convex (built-in)
+- **Authentication**: Convex Auth
 
 ## 🤝 Contributing
 
-**We Welcome Community Contributions!**
+We welcome contributions from the small business community! Here's how you can help:
 
-As a community-driven project, we encourage contributions from fellow small business owners:
-
-### How to Contribute
-- 🐛 **Report Issues**: Found a bug? Let us know!
+### Ways to Contribute
+- 🐛 **Bug Reports**: Found an issue? Let us know!
 - 💡 **Feature Requests**: Suggest improvements based on your compliance experience
+- 📖 **Documentation**: Help improve setup guides and user documentation
 - 🔧 **Code Contributions**: Submit pull requests with enhancements
-- 📚 **Documentation**: Help improve setup guides and user documentation
-- 💬 **Community Support**: Help other small businesses in discussions
+- 🗣️ **Community Support**: Help other small businesses in discussions
 
-### Contribution Guidelines
+### Development Setup
 1. Fork the repository
-2. Create a feature branch
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Make your changes
 4. Test thoroughly
 5. Submit a pull request
 
-## ⚖️ License & Disclaimer
+## 📄 License & Disclaimer
 
-### MIT License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### Apache 2.0 License
+This project is licensed under the Apache License, Version 2.0 - see the [LICENSE](LICENSE) file for details.
 
-**What this means:**
-- ✅ **Free to use** for commercial and personal projects
-- ✅ **Free to modify** and create derivative works
-- ✅ **Free to distribute** your modified versions
-- ✅ **No warranty** - use at your own risk
+### Disclaimer
+**Apache 2.0 License**: This software is provided "as is" without warranty of any kind. Use at your own risk. We built this during our own CMMC journey and share it freely with the community.
 
-### Important Disclaimers
+**Not Legal Advice**: This platform is a tool to help organize your compliance efforts. It does not constitute legal or compliance advice. Always consult with qualified CMMC assessors and legal professionals for your specific situation.
 
-⚠️ **Not Professional Services**: This is a free, open-source tool built during our own CMMC journey. It is not professional consulting services.
+## 🆘 Support
 
-⚠️ **CMMC Updates & Compliance**: Some access controls and configurations may not reflect the latest CMMC requirements. Always follow official CMMC updates and guidance to ensure your configurations remain compliant. The platform should be regularly updated based on evolving CMMC standards.
+- 📖 **Documentation**: Check our comprehensive guides above
+- 💬 **Community**: Join discussions in GitHub Issues
+- 🐛 **Bug Reports**: Use GitHub Issues for technical problems
+- 💡 **Feature Requests**: Suggest improvements via GitHub Issues
 
-⚠️ **Use at Your Own Risk**: While we've built this based on our compliance experience, every organization is different. Consult with certified CMMC professionals for official guidance.
+## About Convex Open Source
 
-⚠️ **Community Tool**: This platform represents our shared experience and community knowledge, not official CMMC guidance.
+CMMC Compass is built to run on [Convex](https://www.convex.dev/), a modern open source backend platform. For privacy, compliance, and full control, we recommend self-hosting Convex using their open source backend:
 
-⚠️ **Self-Hosted Recommended**: For maximum security and compliance, we recommend self-hosting all components locally.
+- [Self-Hosting Documentation](https://docs.convex.dev/self-hosting)
+- [Convex Open Source GitHub](https://github.com/get-convex/convex-backend)
 
-## 🙋‍♂️ Support & Community
-
-### Getting Help
-- 📖 **Documentation**: Comprehensive guides in the `/docs` section
-- 🐛 **Issues**: Report bugs on GitHub Issues
-- 💬 **Discussions**: Community support on GitHub Discussions
-- 📧 **Contact**: info@tekimax.com for urgent issues
-
-### Community
-- 🌟 **Star the repo** if this helps your small business
-- 🍴 **Fork and contribute** improvements
-- 📢 **Share your success** stories with CMMC compliance
-- 🤝 **Help other small businesses** in the community
+Convex is released under the FSL Apache 2.0 License and is actively maintained by the Convex team and community. For more details, see the [Convex Open Source page](https://www.convex.dev/open-source).
 
 ---
 
 **Built with ❤️ by small business owners, for small business owners.**
 
-*Tekimax LLC - Empowering small businesses through open-source compliance tools.* 
+*"We've been through the CMMC journey ourselves. This tool represents everything we wish we had when we started."* 
