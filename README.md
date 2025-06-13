@@ -168,25 +168,51 @@ bunx convex env set VARIABLE_NAME "value"
 
 ## 📋 CMMC Level 1 Controls Included
 
-The platform includes all 17 CMMC Level 1 controls:
+The platform includes all **17 official CMMC Level 1 controls** as defined in the CMMC Self-Assessment Guide v2.0:
 
-- **AC.L1-3.1.1**: Access Control Policy
-- **AC.L1-3.1.2**: Account Management  
-- **AC.L1-3.1.3**: External Connections
-- **AC.L1-3.1.4**: Information Flow
-- **AC.L1-3.1.5**: Separation of Duties
-- **AC.L1-3.1.6**: Least Privilege
-- **AC.L1-3.1.7**: Unsuccessful Access
-- **AC.L1-3.1.8**: Privacy/Security Notices
-- **AC.L1-3.1.9**: Previous Logon Notification
-- **AC.L1-3.1.10**: Concurrent Session Control
-- **AC.L1-3.1.11**: Session Lock
-- **AC.L1-3.1.12**: Session Termination
-- **AC.L1-3.1.13**: Supervision and Review
-- **AC.L1-3.1.14**: Permitted Actions
-- **AC.L1-3.1.15**: Privileged Functions
-- **AC.L1-3.1.16**: Security Attributes
-- **AC.L1-3.1.17**: Remote Access
+### Access Control (AC) - 4 controls
+- **AC.L1-3.1.1**: Authorized Access Control
+- **AC.L1-3.1.2**: Transaction & Function Control
+- **AC.L1-3.1.20**: External Connections
+- **AC.L1-3.1.22**: Control Public Information
+
+### Identification & Authentication (IA) - 2 controls
+- **IA.L1-3.5.1**: Identification
+- **IA.L1-3.5.2**: Authentication
+
+### Media Protection (MP) - 1 control
+- **MP.L1-3.8.3**: Media Disposal
+
+### Physical Protection (PE) - 4 controls
+- **PE.L1-3.10.1**: Limit Physical Access
+- **PE.L1-3.10.3**: Escort Visitors
+- **PE.L1-3.10.4**: Physical Access Logs
+- **PE.L1-3.10.5**: Manage Physical Access
+
+### System & Communications Protection (SC) - 2 controls
+- **SC.L1-3.13.1**: Boundary Protection
+- **SC.L1-3.13.5**: Public-Access System Separation
+
+### System & Information Integrity (SI) - 4 controls
+- **SI.L1-3.14.1**: Flaw Remediation
+- **SI.L1-3.14.2**: Malicious Code Protection
+- **SI.L1-3.14.4**: Update Malicious Code Protection
+- **SI.L1-3.14.5**: System & File Scanning
+
+> **Note**: These controls are based on the official CMMC Self-Assessment Guide Level 1 v2.0 and represent the complete baseline requirements for CMMC Level 1 certification.
+
+## 📚 Learning Resources
+
+### CMMC Training & Education
+- **[Project Spectrum Online Courses](https://www.projectspectrum.io/#/online-courses)** - Comprehensive CMMC training courses and certification preparation
+- **[CMMC-AB Official Resources](https://cyberab.org/)** - Official CMMC Accreditation Body resources and updates
+- **[NIST SP 800-171](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final)** - Foundational cybersecurity requirements for CUI
+- **[DoD CMMC Resources](https://www.acq.osd.mil/cmmc/)** - Official Department of Defense CMMC information
+
+### Documentation & Guides
+- **CMMC Self-Assessment Guide Level 1 v2.0** - Official assessment methodology
+- **NIST Cybersecurity Framework** - Industry best practices and guidelines
+- **Small Business Cybersecurity Resources** - Tailored guidance for small organizations
 
 ## 🤝 WHO We Are
 
