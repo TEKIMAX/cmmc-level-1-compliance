@@ -216,7 +216,7 @@ We are **Tekimax LLC**, a small technology business that went through CMMC Level
 
 ## 🎯 WHAT This Platform Provides
 
-**Complete CMMC Level 1 Compliance Management - 100% Self-Hosted**
+**Complete CMMC Level 1 Compliance Management**
 
 ### Core Features
 - 📊 **Real-time Dashboard**: Track implementation progress across all 17 controls
@@ -229,9 +229,9 @@ We are **Tekimax LLC**, a small technology business that went through CMMC Level
 ### Why We Built This
 - 🆓 **Completely Free**: Apache 2.0 licensed - use, modify, and distribute without restrictions
 - 🏠 **Self-Hosted**: Your data stays on your infrastructure - no cloud dependencies
-- 🔒 **Privacy-First**: No telemetry, no tracking, no data collection
 - 🛡️ **Security Through Openness**: Community review makes the platform more secure
 - 🚀 **Continuous Improvement**: Features driven by real user needs, not sales targets
+- 🌉 **Bridge the Gap**: Our hope is this open source project becomes a bridge between small businesses and security professionals, DoD, and Cyber AB to collaborate and close the 0-to-1 friction and frustration that SMBs face in cybersecurity compliance
 
 We chose the Apache 2.0 license because:
 - ✅ **Maximum Freedom**: Use commercially without restrictions
@@ -302,6 +302,57 @@ CMMC Compass is built to run on [Convex](https://www.convex.dev/), a modern open
 - [Convex Open Source GitHub](https://github.com/get-convex/convex-backend)
 
 Convex is released under the FSL Apache 2.0 License and is actively maintained by the Convex team and community. For more details, see the [Convex Open Source page](https://www.convex.dev/open-source).
+
+## 🗺️ Roadmap & TODOs
+
+## 🛠️ **Immediate TODOs (Contributors Welcome!)**
+
+### 🎯 **Priority**
+- [ ] **Enhanced AI chat capabilities** - Context-aware responses for each control
+- [ ] **Document template library** - Pre-built policy and procedure templates
+- [ ] **Export/import functionality** - Backup and restore user data
+- [ ] **Multi-language support** - Internationalization for broader accessibility
+
+### 📚 **Learning & Education Focus**
+- [ ] **Interactive control tutorials** - Hands-on learning experiences
+- [ ] **Glossary and definitions** - Built-in cybersecurity terminology guide
+- [ ] **Practice scenarios** - Simulated security situations for learning
+
+### 🤝 **Community Features**
+- [ ] **Discussion forums** - Community-driven Q&A and support
+- [ ] **User-contributed content** - Allow community to share templates and guides
+- [ ] **Success stories section** - Share implementation victories
+
+## 🎓 **TEKIMAX's Teaching Mission**
+
+> *"AI should empower through education, not intimidate through complexity ."*
+
+Every feature we build prioritizes:
+- **Learning over compliance checking** - Understanding why, not just what
+- **Empowerment through knowledge** - Building cybersecurity expertise
+- **Community-driven education** - Learning from peers and experts
+- **Practical application** - Bridging theory to real-world implementation
+
+### 🌟 **How to Contribute to Our Teaching Mission**
+
+1. **Educational Content Creation**
+   - Create visual guides for complex concepts
+   - Develop interactive learning experiences
+
+2. **Community Building**
+   - Help other small businesses in discussions
+   - Share your implementation experiences
+   - Mentor newcomers to cybersecurity
+
+3. **Feature Development**
+   - Focus on features that teach, not just track
+   - Build tools that explain concepts clearly
+   - Create engaging learning experiences
+
+4. **Documentation Improvements**
+   - Write clear, beginner-friendly guides
+   - Add examples and real-world scenarios
+   - Improve accessibility for non-technical users
 
 ---
 
