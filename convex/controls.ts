@@ -22,53 +22,39 @@ const BASELINE_CONTROLS = [
   {
     controlId: "AC.L1-3.1.20",
     domain: "Access Control", 
-    title: "External System Connections",
+    title: "External Connections",
     description: "Verify and control/limit connections to and use of external information systems.",
     requirement: "Monitor and control connections to external systems."
   },
   {
     controlId: "AC.L1-3.1.22",
     domain: "Access Control",
-    title: "Publicly Accessible Content",
+    title: "Control Public Information",
     description: "Control information posted or processed on publicly accessible information systems.",
     requirement: "Review and control information posted on public-facing systems."
   },
 
-  // Identification & Authentication (IA)
+  // Identification & Authentication (IA) - 2 controls
   {
     controlId: "IA.L1-3.5.1",
     domain: "Identification & Authentication",
-    title: "User Identification & Authentication", 
+    title: "Identification", 
     description: "Identify information system users, processes acting on behalf of users, or devices.",
     requirement: "Implement user identification and authentication mechanisms."
   },
   {
     controlId: "IA.L1-3.5.2",
     domain: "Identification & Authentication",
-    title: "Multi-factor Authentication",
+    title: "Authentication",
     description: "Authenticate (or verify) the identities of those users, processes, or devices, as a prerequisite to allowing access to organizational information systems.",
     requirement: "Verify user identities before granting system access."
   },
 
-  // Media Protection (MP)
-  {
-    controlId: "MP.L1-3.8.1",
-    domain: "Media Protection",
-    title: "Media Access Control",
-    description: "Protect (i.e., physically control and securely store) information system media containing covered defense information, both paper and digital.",
-    requirement: "Physically protect and securely store media containing CUI."
-  },
-  {
-    controlId: "MP.L1-3.8.2",
-    domain: "Media Protection", 
-    title: "Media Access Limitation",
-    description: "Limit access to information on information system media to authorized users.",
-    requirement: "Restrict media access to authorized personnel only."
-  },
+  // Media Protection (MP) - 1 control
   {
     controlId: "MP.L1-3.8.3",
     domain: "Media Protection",
-    title: "Media Sanitization",
+    title: "Media Disposal",
     description: "Sanitize or destroy information system media containing covered defense information before disposal or release for reuse.",
     requirement: "Properly sanitize or destroy media before disposal or reuse."
   },
@@ -77,7 +63,7 @@ const BASELINE_CONTROLS = [
   {
     controlId: "PE.L1-3.10.1",
     domain: "Physical Protection",
-    title: "Physical Access Limits",
+    title: "Limit Physical Access",
     description: "Limit physical access to organizational information systems, equipment, and the respective operating environments to authorized individuals.",
     requirement: "Control physical access to systems and facilities."
   },
@@ -98,7 +84,7 @@ const BASELINE_CONTROLS = [
   {
     controlId: "PE.L1-3.10.5",
     domain: "Physical Protection",
-    title: "Workstation Use Controls",
+    title: "Manage Physical Access",
     description: "Control and manage physical access to information systems within organizational facilities.",
     requirement: "Control physical access to workstations and devices."
   },
@@ -114,7 +100,7 @@ const BASELINE_CONTROLS = [
   {
     controlId: "SC.L1-3.13.5",
     domain: "System & Communications Protection",
-    title: "Public-Key Infrastructure",
+    title: "Public-Access System Separation",
     description: "Implement subnetworks for publicly accessible system components that are physically or logically separated from internal networks.",
     requirement: "Separate public-facing systems from internal networks."
   },
@@ -135,11 +121,11 @@ const BASELINE_CONTROLS = [
     requirement: "Implement malware protection across systems."
   },
   {
-    controlId: "SI.L1-3.14.4",
+    controlId: "SI.L1-3.14.5",
     domain: "System & Information Integrity",
     title: "Security Alerts & Advisories",
-    description: "Update malicious code protection mechanisms when new releases are available in accordance with organizational configuration management policy and procedures.",
-    requirement: "Keep security tools updated with latest signatures and patches."
+    description: "Perform periodic scans of the information system and real-time scans of files from external sources as files are downloaded, opened, or executed.",
+    requirement: "Perform regular vulnerability scans and real-time file scanning."
   }
 ];
 
