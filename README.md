@@ -201,20 +201,6 @@ The platform includes all **17 official CMMC Level 1 controls** as defined in th
 
 > **Note**: These controls are based on the official CMMC Self-Assessment Guide Level 1 v2.0 and represent the complete baseline requirements for CMMC Level 1 certification.
 
-## 📚 Learning Resources
-
-> **Disclaimer**: The following resources are shared for educational purposes only and do not constitute endorsements. These are personal preferences and community suggestions to help with CMMC learning.
-
-### CMMC Training & Education
-- **[Project Spectrum Online Courses](https://www.projectspectrum.io/#/online-courses)** - CMMC training courses and certification preparation *(personal preference, not an endorsement)*
-- **[CMMC-AB Official Resources](https://cyberab.org/)** - Official CMMC Accreditation Body resources and updates
-- **[NIST SP 800-171](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final)** - Foundational cybersecurity requirements for CUI
-- **[DoD CMMC Resources](https://www.acq.osd.mil/cmmc/)** - Official Department of Defense CMMC information
-
-### Documentation & Guides
-- **CMMC Self-Assessment Guide Level 1 v2.0** - Official assessment methodology
-- **NIST Cybersecurity Framework** - Industry best practices and guidelines
-- **Small Business Cybersecurity Resources** - Tailored guidance for small organizations
 
 ## 🤝 WHO We Are
 
